@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@react-course-v2/course-hints": ["libs/course-hints/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

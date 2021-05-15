@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user.context <UserProvider /> should render nested providers 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "user": null,
+    }
+  }
+>
+  <ContextProvider
+    value={[Function]}
+  >
+    <div />
+  </ContextProvider>
+</ContextProvider>
+`;

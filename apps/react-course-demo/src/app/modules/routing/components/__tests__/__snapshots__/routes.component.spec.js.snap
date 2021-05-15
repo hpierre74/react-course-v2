@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppRoutes /> Snapshot should render correctly 1`] = `
+<Fragment>
+  <Switch>
+    <Route
+      path="/about"
+    >
+      <AboutPage />
+    </Route>
+    <Route
+      path="/contact"
+    >
+      <ContactPage />
+    </Route>
+    <Route
+      path="/login"
+    >
+      <LoginPage />
+    </Route>
+  </Switch>
+  <ArticlesProvider>
+    <CartProvider>
+      <Switch>
+        <Route
+          exact={true}
+          path="/checkout"
+        >
+          <CheckoutPage />
+        </Route>
+        <Route
+          path="/articles/:id"
+        >
+          <ArticlePage />
+        </Route>
+        <Route
+          exact={true}
+          path="/"
+        >
+          <HomePage />
+        </Route>
+      </Switch>
+    </CartProvider>
+  </ArticlesProvider>
+</Fragment>
+`;
