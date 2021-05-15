@@ -13,13 +13,13 @@ import Review from './components/review.component';
 import { useStepperForm } from '../../hooks/useStepperForm.hook';
 import { SHIPPING, PAYMENT, REVIEW, steps } from './checkout.constants';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   main: {
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(4),
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -28,39 +28,31 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(4),
-      padding: theme.spacing(3)
-    }
+      padding: theme.spacing(3),
+    },
   },
   stepper: {
-    padding: theme.spacing(3, 0, 5)
+    padding: theme.spacing(3, 0, 5),
   },
   buttons: {
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   button: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1)
-  }
+    marginLeft: theme.spacing(1),
+  },
 }));
 
 function getStepContent(step, [formState, setFormState]) {
   switch (step) {
     case SHIPPING:
       return (
-        <AddressForm
-          initialState={formState[SHIPPING]}
-          step={step}
-          setParentState={setFormState}
-        />
+        <AddressForm initialState={formState[SHIPPING]} step={step} setParentState={setFormState} />
       );
     case PAYMENT:
       return (
-        <PaymentForm
-          initialState={formState[PAYMENT]}
-          step={step}
-          setParentState={setFormState}
-        />
+        <PaymentForm initialState={formState[PAYMENT]} step={step} setParentState={setFormState} />
       );
     case REVIEW:
       return (
@@ -79,7 +71,7 @@ function getStepContent(step, [formState, setFormState]) {
 export const initialFormState = {
   [SHIPPING]: {},
   [PAYMENT]: {},
-  [REVIEW]: {}
+  [REVIEW]: {},
 };
 
 function Checkout() {
@@ -102,44 +94,45 @@ function Checkout() {
           Checkout
         </Typography>
         <Stepper activeStep={activeStep} className={classes.stepper}>
-          {steps.map((label) => (
+          {steps.map(label => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
-        {activeStep === steps.length ? (
-          <>
-            <Typography variant="h5" gutterBottom>
-              Thank you for your order.
-            </Typography>
-            <Typography variant="subtitle1">
-              Your order number is #2001539. We have emailed your order
-              confirmation, and will send you an update when your order has
-              shipped.
-            </Typography>
-          </>
-        ) : (
-          <>
-            {getStepContent(steps[activeStep], stepperForm)}
-            <div className={classes.buttons}>
-              {activeStep !== 0 && (
-                <Button onClick={handleBack} className={classes.button}>
-                  Back
-                </Button>
-              )}
+        <React.Fragment>
+          {activeStep === steps.length ? (
+            <React.Fragment>
+              <Typography variant="h5" gutterBottom>
+                Thank you for your order.
+              </Typography>
+              <Typography variant="subtitle1">
+                Your order number is #2001539. We have emailed your order confirmation, and will
+                send you an update when your order has shipped.
+              </Typography>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {getStepContent(steps[activeStep], stepperForm)}
+              <div className={classes.buttons}>
+                {activeStep !== 0 && (
+                  <Button onClick={handleBack} className={classes.button}>
+                    Back
+                  </Button>
+                )}
 
-              <Button
-                name={`next-${activeStep}`}
-                variant="contained"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-              </Button>
-            </div>
-          </>
-        )}
+                <Button
+                  name={`next-${activeStep}`}
+                  variant="contained"
+                  onClick={handleNext}
+                  className={classes.button}
+                >
+                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                </Button>
+              </div>
+            </React.Fragment>
+          )}
+        </React.Fragment>
       </Paper>
     </Container>
   );

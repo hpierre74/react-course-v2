@@ -31,6 +31,13 @@
     },
     "course-hints": {
       "tags": []
+    },
+    "exercise-1": {
+      "tags": []
+    },
+    "exercise-1-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-1"]
     }
   }
 }
