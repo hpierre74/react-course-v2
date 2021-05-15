@@ -33,10 +33,13 @@ jobs:
         uses: CultureHQ/actions-yarn@v1.0.1
 
       - name: yarn install
-        run: yarn
+        run: yarn install --non-interactive --no-progress
 
       - name: Lint
-        run: yarn lint
+        run: yarn affected:lint
 
-      - name: Test
-        run: yarn test
+      - name: Unit Tests
+        run: yarn affected:test
+
+      - name: E2E Tests
+        run: yarn affected:e2e
