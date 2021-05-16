@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> Snapshot should render correctly 1`] = `
+<Fragment>
+  <NavBar />
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-1"
+  >
+    <p>
+      foo
+    </p>
+  </WithStyles(ForwardRef(Container))>
+</Fragment>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArticlePage /> Snapshot should render correctly 1`] = `
+<Layout>
+  <Styled(MuiBox)
+    display="flex"
+    justifyContent="space-between"
+    m={1}
+  >
+    <h2>
+      Article 
+      foo
+    </h2>
+    <WithStyles(ForwardRef(Button))
+      color="secondary"
+      to="/"
+      variant="outlined"
+    >
+      Return to Home
+    </WithStyles(ForwardRef(Button))>
+  </Styled(MuiBox)>
+  <CartLayout>
+    <Article
+      id="foo"
+    />
+  </CartLayout>
+</Layout>
+`;

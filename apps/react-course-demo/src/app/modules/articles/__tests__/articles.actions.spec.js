@@ -1,6 +1,8 @@
 import { RECEIVED_ARTICLES, requestArticles } from '../articles.actions';
 
-jest.mock('../../../utils/api.utils', () => ({ getArticles: jest.fn().mockResolvedValue('foo') }));
+jest.mock('@react-course-v2/api', () => ({
+  getArticles: jest.fn().mockResolvedValue('foo')
+}));
 
 describe('articles.actions', () => {
   let dispatch;
@@ -10,6 +12,9 @@ describe('articles.actions', () => {
 
   it('should dispatch getArticles result', async () => {
     await requestArticles()(dispatch);
-    expect(dispatch).toBeCalledWith({ type: RECEIVED_ARTICLES, articles: 'foo' });
+    expect(dispatch).toBeCalledWith({
+      type: RECEIVED_ARTICLES,
+      articles: 'foo'
+    });
   });
 });
