@@ -41,6 +41,13 @@
     },
     "api": {
       "tags": []
+    },
+    "exercise-2": {
+      "tags": []
+    },
+    "exercise-2-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-2"]
     }
   }
 }

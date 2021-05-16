@@ -1,4 +1,4 @@
-const endpoint = '/fixtures/articles.json';
+const endpoint = '/assets/articles.json';
 
 export const getArticles = () =>
   fetch(endpoint)

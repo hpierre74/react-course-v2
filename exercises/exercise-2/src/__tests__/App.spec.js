@@ -13,7 +13,9 @@ const emptyArray = [];
 
 ApiUtils.getArticles = jest.fn().mockResolvedValue(MockedArticles);
 
-jest.mock('react', () => global.mockReactWithHooks({ effect: true, state: true }));
+jest.mock('react', () =>
+  global.mockReactWithHooks({ effect: true, state: true })
+);
 
 const getWrapper = () => shallow(<App />);
 
@@ -25,19 +27,21 @@ beforeEach(() => {
 });
 
 describe('App', () => {
-  describe('Snapshot', () => {
-    it('should render correctly', () => {
-      expect(wrapper).toMatchSnapshot();
-    });
-  });
-
   describe('Markup checks', () => {
     it('should contain the correct markup', () => {
       expect(wrapper.find(`[data-testid='app']`).exists()).toBeTruthy();
-      expect(wrapper.find(`[data-testid='app-title']`).text()).toBe('Home Page');
-      expect(wrapper.find(`[data-testid='articles-container']`).exists()).toBeTruthy();
-      expect(wrapper.find(`[data-testid='articles-title']`).text()).toBe('Articles');
-      expect(wrapper.find(`[data-testid='articles-list']`).exists()).toBeTruthy();
+      expect(wrapper.find(`[data-testid='app-title']`).text()).toBe(
+        'Home Page'
+      );
+      expect(
+        wrapper.find(`[data-testid='articles-container']`).exists()
+      ).toBeTruthy();
+      expect(wrapper.find(`[data-testid='articles-title']`).text()).toBe(
+        'Articles'
+      );
+      expect(
+        wrapper.find(`[data-testid='articles-list']`).exists()
+      ).toBeTruthy();
     });
   });
 
@@ -54,7 +58,9 @@ describe('App', () => {
 
   describe('Effects checks', () => {
     it('should call useEffect with a function and an empty array', () => {
-      expect(useEffect).toHaveBeenCalledWith(expect.any(Function), [emptyArray]);
+      expect(useEffect).toHaveBeenCalledWith(expect.any(Function), [
+        emptyArray
+      ]);
     });
 
     it('should call getArticles once', () => {

@@ -5,7 +5,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -14,8 +14,8 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 import remarkEmojiPlugin from 'remark-emoji';
 
 const renderers = {
-  code: ({className = '', children, ...props}) => {
-    return <SyntaxHighlighter style={vscDarkPlus} language={className.replace('language-', '')} children={children} {...props}/>;
+  code: ({className = '', children,  ...props}) => {
+    return props.inline ?<code className={className}>{children}</code> : <SyntaxHighlighter style={vscDarkPlus} language={className.replace('language-', '')} children={children} />;
   },
 };
 
