@@ -38,6 +38,9 @@
     "exercise-1-e2e": {
       "tags": [],
       "implicitDependencies": ["exercise-1"]
+    },
+    "api": {
+      "tags": []
     }
   }
 }

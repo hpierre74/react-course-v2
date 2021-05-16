@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> Snapshot should render correctly 1`] = `
+<Layout
+  data-testid="app"
+>
+  <h2
+    data-testid="app-title"
+  >
+    Home Page
+  </h2>
+  <CartLayout>
+    <ArticlesList />
+  </CartLayout>
+</Layout>
+`;
