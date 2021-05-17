@@ -1,4 +1,4 @@
-import { getGreeting } from '../support/app.po';
+import { getArticlesListItem } from '../support/app.po';
 
 describe('exercise-2', () => {
   beforeEach(() => cy.visit('/'));
@@ -8,6 +8,6 @@ describe('exercise-2', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to exercise-2!');
+    getArticlesListItem(2).contains('Toyota Yaris');
   });
 });

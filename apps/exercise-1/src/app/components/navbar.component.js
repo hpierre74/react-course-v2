@@ -16,31 +16,31 @@ import { isUserConnected } from '../modules/user/user.selectors';
 import { useUser } from '../modules/user/user.context';
 import { login, logout } from '../modules/user/user.actions';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
     transition: 'all 0.5s',
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   loginButton: {
     color: theme.palette.success.main,
     '&:hover': {
       background: theme.palette.error.main,
-      color: 'white',
-    },
+      color: 'white'
+    }
   },
   logoutButton: {
     color: theme.palette.error.main,
     '&:hover': {
       background: theme.palette.success.main,
-      color: 'white',
-    },
+      color: 'white'
+    }
   },
   title: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));
 
 export default function NavBar() {
@@ -50,7 +50,7 @@ export default function NavBar() {
   const [userState, dispatch] = useUser();
   const isConnected = isUserConnected(userState);
 
-  const handleMenu = event => {
+  const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -63,7 +63,7 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" data-testid="navbar">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           Shopping App
@@ -72,7 +72,7 @@ export default function NavBar() {
           edge="start"
           className={classnames([
             classes.menuButton,
-            isConnected ? classes.loginButton : classes.logoutButton,
+            isConnected ? classes.loginButton : classes.logoutButton
           ])}
           aria-label={`${isConnected ? 'login' : 'logout'} button`}
           onClick={logInAndOut}
@@ -96,12 +96,12 @@ export default function NavBar() {
             anchorEl={anchorEl}
             anchorOrigin={{
               vertical: 'top',
-              horizontal: 'right',
+              horizontal: 'right'
             }}
             keepMounted
             transformOrigin={{
               vertical: 'top',
-              horizontal: 'right',
+              horizontal: 'right'
             }}
             open={open}
             onClose={handleClose}

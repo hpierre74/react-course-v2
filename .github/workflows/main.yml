@@ -21,8 +21,10 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - name: Set Node.js 12.x
         uses: actions/setup-node@master
@@ -32,14 +34,11 @@ jobs:
       - name: Yarn CLI
         uses: CultureHQ/actions-yarn@v1.0.1
 
-      - name: yarn install
-        run: yarn install --non-interactive --no-progress
-
-      - name: Lint
-        run: yarn affected:lint
-
-      - name: Unit Tests
-        run: yarn affected:test
-
-      - name: E2E Tests
-        run: yarn affected:e2e
+      - run: git fetch --no-tags --prune --depth=5 origin master
+      - run: yarn install --frozen-lockfile
+      - run: yarn affected:build --base=origin/master
+      - run: yarn affected:lint --base=origin/master
+      - run: yarn affected:test --base=origin/master
+      - run: yarn affected:e2e --base=origin/master
+        env:
+          CI: true

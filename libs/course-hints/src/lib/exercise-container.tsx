@@ -19,11 +19,6 @@ const renderers = {
   },
 };
 
-// Fuck TS
-const getPalette = theme => theme.palette;
-const getTypography = theme => theme.typography;
-const getSpacing = theme => theme.spacing;
-
 const useStyles = makeStyles(theme => ({
   position: {
     position: 'fixed',
@@ -67,7 +62,7 @@ const useStyles = makeStyles(theme => ({
         // We disable the focus ring for mouse, touch and keyboard users.
         outline: 0,
         '&$hover:hover': {
-          backgroundColor: getPalette(theme).action.hover,
+          backgroundColor: theme.palette.action.hover,
         },
         '&$selected, &$selected:hover': {
           backgroundColor: 'rgba(255,255,255,0.8)',
@@ -75,7 +70,7 @@ const useStyles = makeStyles(theme => ({
       },
 
       '& th, td': {
-        ...getTypography(theme).body2,
+        ...theme.typography.body2,
         fontSize: '15px',
         display: 'table-cell',
         verticalAlign: 'inherit',
@@ -83,15 +78,15 @@ const useStyles = makeStyles(theme => ({
         // Removes the alpha (sets it to 1), and lightens or darkens the theme color.
         borderBottom: `1px solid rgba(0,0,0,0.25)`,
         textAlign: 'left',
-        padding: getSpacing(theme)(2),
+        padding: theme.spacing(2),
       },
       '& th': {
         fontWeight: 'bold',
-        backgroundColor: getPalette(theme).primary.main,
-        color: getPalette(theme).primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
       },
       '& tr:nth-child(2n+1)': {
-        backgroundColor: lighten(getPalette(theme).primary.light, 0.9),
+        backgroundColor: lighten(theme.palette.primary.light, 0.9),
       },
     },
   },
