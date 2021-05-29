@@ -16,10 +16,10 @@ import { SHIPPING, PAYMENT, REVIEW, steps } from './checkout.constants';
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   main: {
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(4),
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -28,20 +28,20 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(4),
-      padding: theme.spacing(3)
-    }
+      padding: theme.spacing(3),
+    },
   },
   stepper: {
-    padding: theme.spacing(3, 0, 5)
+    padding: theme.spacing(3, 0, 5),
   },
   buttons: {
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   button: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1)
-  }
+    marginLeft: theme.spacing(1),
+  },
 }));
 
 function getStepContent(step, [formState, setFormState]) {
@@ -79,7 +79,7 @@ function getStepContent(step, [formState, setFormState]) {
 export const initialFormState = {
   [SHIPPING]: {},
   [PAYMENT]: {},
-  [REVIEW]: {}
+  [REVIEW]: {},
 };
 
 function Checkout() {

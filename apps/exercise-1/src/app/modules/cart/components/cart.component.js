@@ -25,16 +25,16 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     position: 'sticky',
-    top: '20px'
+    top: '20px',
   },
   cardContent: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   listItem: {
     borderBottom: '1px solid lightgray',
     textDecoration: 'none',
-    color: 'black'
-  }
+    color: 'black',
+  },
 });
 
 export function Cart() {

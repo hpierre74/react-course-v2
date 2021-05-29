@@ -25,9 +25,8 @@ Cypress.Commands.add('login', (email, password) => {
 //
 
 Cypress.Commands.add('getByDataTestId', (selector, ...args) => {
-  return cy.get(`[data-testid=${selector}]`, ...args)
-})
-
+  return cy.get(`[data-testid=${selector}]`, ...args);
+});
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

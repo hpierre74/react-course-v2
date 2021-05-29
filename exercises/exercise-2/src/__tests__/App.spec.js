@@ -59,7 +59,7 @@ describe('App', () => {
   describe('Effects checks', () => {
     it('should call useEffect with a function and an empty array', () => {
       expect(useEffect).toHaveBeenCalledWith(expect.any(Function), [
-        emptyArray
+        emptyArray,
       ]);
     });
 

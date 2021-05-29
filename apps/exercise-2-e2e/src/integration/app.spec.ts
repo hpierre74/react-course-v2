@@ -5,7 +5,9 @@ describe('exercise-2', () => {
 
   it('should display each articles names', () => {
     cy.fixture('articles.json').then((articles) => {
-      return articles.forEach(article => cy.getByDataTestId(`article-${article.id}`).contains(article.name));
+      return articles.forEach((article) =>
+        cy.getByDataTestId(`article-${article.id}`).contains(article.name)
+      );
     });
-  })
+  });
 });

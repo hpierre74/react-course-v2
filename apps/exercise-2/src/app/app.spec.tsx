@@ -4,7 +4,9 @@ import mockArticles from '../assets/articles.json';
 
 import App from './app';
 
-jest.mock('@react-course-v2/api', () => ({ getArticles : jest.fn().mockResolvedValue(mockArticles)}));
+jest.mock('@react-course-v2/api', () => ({
+  getArticles: jest.fn().mockResolvedValue(mockArticles),
+}));
 
 describe('App', () => {
   it('should render successfully', async () => {
@@ -13,8 +15,7 @@ describe('App', () => {
       wrapper = render(<App />);
     });
 
-    const { baseElement } = wrapper
+    const { baseElement } = wrapper;
     expect(baseElement).toBeTruthy();
   });
-
 });

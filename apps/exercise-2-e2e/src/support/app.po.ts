@@ -1,1 +1,1 @@
-export const getArticlesList = () => cy.get('ul > li')
+export const getArticlesList = () => cy.get('ul > li');

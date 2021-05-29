@@ -14,12 +14,20 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 import remarkEmojiPlugin from 'remark-emoji';
 
 const renderers = {
-  code: ({className = '', children,  ...props}) => {
-    return props.inline ?<code className={className}>{children}</code> : <SyntaxHighlighter style={vscDarkPlus} language={className.replace('language-', '')} children={children} />;
+  code: ({ className = '', children, ...props }) => {
+    return props.inline ? (
+      <code className={className}>{children}</code>
+    ) : (
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={className.replace('language-', '')}
+        children={children}
+      />
+    );
   },
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   position: {
     position: 'fixed',
     bottom: 10,
@@ -100,10 +108,9 @@ export function SeeHints() {
 
   const classes = useStyles(theme);
 
-
   React.useEffect(() => {
     fetch('assets/README.md')
-      .then(res => res.text())
+      .then((res) => res.text())
       .then(setMarkdownFile)
       .catch(console.error);
   }, []);
@@ -148,9 +155,6 @@ export const ExerciseContainer = ({ children }) => (
     {children}
     <SeeHints />
   </>
-  );
-
-
-
+);
 
 export default ExerciseContainer;

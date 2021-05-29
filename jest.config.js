@@ -1,9 +1,9 @@
 module.exports = {
-  testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
-  transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest',
-  },
-  resolver: '@nrwl/jest/plugins/resolver',
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageReporters: ['html'],
+  projects: [
+    '<rootDir>/apps/react-course-demo',
+    '<rootDir>/libs/course-hints',
+    '<rootDir>/apps/exercise-1',
+    '<rootDir>/libs/api',
+    '<rootDir>/apps/exercise-2',
+  ],
 };
