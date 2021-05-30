@@ -11,7 +11,8 @@
     },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
-    "nx.json": "*"
+    "nx.json": "*",
+    ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
@@ -41,6 +42,13 @@
     },
     "api": {
       "tags": []
+    },
+    "exercise-2": {
+      "tags": []
+    },
+    "exercise-2-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-2"]
     }
   }
 }

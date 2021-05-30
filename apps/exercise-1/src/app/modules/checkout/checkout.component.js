@@ -13,7 +13,7 @@ import Review from './components/review.component';
 import { useStepperForm } from '../../hooks/useStepperForm.hook';
 import { SHIPPING, PAYMENT, REVIEW, steps } from './checkout.constants';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -48,11 +48,19 @@ function getStepContent(step, [formState, setFormState]) {
   switch (step) {
     case SHIPPING:
       return (
-        <AddressForm initialState={formState[SHIPPING]} step={step} setParentState={setFormState} />
+        <AddressForm
+          initialState={formState[SHIPPING]}
+          step={step}
+          setParentState={setFormState}
+        />
       );
     case PAYMENT:
       return (
-        <PaymentForm initialState={formState[PAYMENT]} step={step} setParentState={setFormState} />
+        <PaymentForm
+          initialState={formState[PAYMENT]}
+          step={step}
+          setParentState={setFormState}
+        />
       );
     case REVIEW:
       return (
@@ -88,13 +96,18 @@ function Checkout() {
   };
 
   return (
-    <Container component="main" className={classes.main} maxWidth="md">
+    <Container
+      component="main"
+      className={classes.main}
+      maxWidth="md"
+      data-testid="checkout"
+    >
       <Paper className={classes.paper} variant="outlined">
         <Typography component="h1" variant="h4" align="center">
           Checkout
         </Typography>
         <Stepper activeStep={activeStep} className={classes.stepper}>
-          {steps.map(label => (
+          {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>
@@ -107,8 +120,9 @@ function Checkout() {
                 Thank you for your order.
               </Typography>
               <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order confirmation, and will
-                send you an update when your order has shipped.
+                Your order number is #2001539. We have emailed your order
+                confirmation, and will send you an update when your order has
+                shipped.
               </Typography>
             </React.Fragment>
           ) : (

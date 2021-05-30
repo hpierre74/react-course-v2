@@ -5,7 +5,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -14,17 +14,20 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 import remarkEmojiPlugin from 'remark-emoji';
 
 const renderers = {
-  code: ({className = '', children, ...props}) => {
-    return <SyntaxHighlighter style={vscDarkPlus} language={className.replace('language-', '')} children={children} {...props}/>;
+  code: ({ className = '', children, ...props }) => {
+    return props.inline ? (
+      <code className={className}>{children}</code>
+    ) : (
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={className.replace('language-', '')}
+        children={children}
+      />
+    );
   },
 };
 
-// Fuck TS
-const getPalette = theme => theme.palette;
-const getTypography = theme => theme.typography;
-const getSpacing = theme => theme.spacing;
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   position: {
     position: 'fixed',
     bottom: 10,
@@ -67,7 +70,7 @@ const useStyles = makeStyles(theme => ({
         // We disable the focus ring for mouse, touch and keyboard users.
         outline: 0,
         '&$hover:hover': {
-          backgroundColor: getPalette(theme).action.hover,
+          backgroundColor: theme.palette.action.hover,
         },
         '&$selected, &$selected:hover': {
           backgroundColor: 'rgba(255,255,255,0.8)',
@@ -75,7 +78,7 @@ const useStyles = makeStyles(theme => ({
       },
 
       '& th, td': {
-        ...getTypography(theme).body2,
+        ...theme.typography.body2,
         fontSize: '15px',
         display: 'table-cell',
         verticalAlign: 'inherit',
@@ -83,15 +86,15 @@ const useStyles = makeStyles(theme => ({
         // Removes the alpha (sets it to 1), and lightens or darkens the theme color.
         borderBottom: `1px solid rgba(0,0,0,0.25)`,
         textAlign: 'left',
-        padding: getSpacing(theme)(2),
+        padding: theme.spacing(2),
       },
       '& th': {
         fontWeight: 'bold',
-        backgroundColor: getPalette(theme).primary.main,
-        color: getPalette(theme).primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
       },
       '& tr:nth-child(2n+1)': {
-        backgroundColor: lighten(getPalette(theme).primary.light, 0.9),
+        backgroundColor: lighten(theme.palette.primary.light, 0.9),
       },
     },
   },
@@ -105,10 +108,9 @@ export function SeeHints() {
 
   const classes = useStyles(theme);
 
-
   React.useEffect(() => {
     fetch('assets/README.md')
-      .then(res => res.text())
+      .then((res) => res.text())
       .then(setMarkdownFile)
       .catch(console.error);
   }, []);
@@ -153,9 +155,6 @@ export const ExerciseContainer = ({ children }) => (
     {children}
     <SeeHints />
   </>
-  );
-
-
-
+);
 
 export default ExerciseContainer;

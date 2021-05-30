@@ -41,24 +41,31 @@ export function Cart() {
   const classes = useStyles();
   const [{ articles, total }, dispatch] = useCart();
 
-  const removeItemFromList = useCallback(id => () => dispatch(removeFromCart(id)), [dispatch]);
+  const removeItemFromList = useCallback(
+    (id) => () => dispatch(removeFromCart(id)),
+    [dispatch]
+  );
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} data-testid="cart">
       <CardContent className={classes.cardContent}>
         <Typography gutterBottom variant="h5" component="h2">
           Cart
         </Typography>
         <List aria-label="purchased-items-list">
-          {Object.values(articles).map(article => (
+          {Object.values(articles).map((article) => (
             <ListItem
               component={Link}
               to={`/articles/${article.slug}`}
               key={article.id}
               className={classes.listItem}
             >
-              <ListItemText primary={`x${article.occurrences || 1} - ${article.name}`} />
-              <ListItemText secondary={(article.occurrences || 1) * article.price} />
+              <ListItemText
+                primary={`x${article.occurrences || 1} - ${article.name}`}
+              />
+              <ListItemText
+                secondary={(article.occurrences || 1) * article.price}
+              />
               <ListItemSecondaryAction>
                 <IconButton
                   size="small"
