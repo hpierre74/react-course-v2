@@ -1,8 +1,4 @@
 {
-  "npmScope": "react-course-v2",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -14,6 +10,10 @@
     "nx.json": "*",
     ".eslintrc.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "react-course-v2",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -49,6 +49,13 @@
     "exercise-2-e2e": {
       "tags": [],
       "implicitDependencies": ["exercise-2"]
+    },
+    "exercise-3": {
+      "tags": []
+    },
+    "exercise-3-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-3"]
     }
   }
 }
