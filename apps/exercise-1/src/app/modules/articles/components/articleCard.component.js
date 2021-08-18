@@ -18,18 +18,18 @@ const useStyles = makeStyles({
   card: {
     height: '100%',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%' // 16:9
   },
   cardContent: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   cardDescription: {
     display: 'flex',
-    justifyContent: 'space-between',
-  },
+    justifyContent: 'space-between'
+  }
 });
 
 export function ArticleCard({ article }) {
@@ -53,10 +53,17 @@ export function ArticleCard({ article }) {
           </div>
         </CardContent>
         <CardActions>
-          <Button onClick={dispatchAddToCart} size="small" color="secondary" variant="outlined">
+          <Button
+            data-testid={`add-to-cart-${slug}`}
+            onClick={dispatchAddToCart}
+            size="small"
+            color="secondary"
+            variant="outlined"
+          >
             Add to Cart
           </Button>
           <Button
+            data-testid={`go-to-article-${slug}`}
             size="small"
             component={Link}
             to={`/articles/${slug}`}
@@ -78,6 +85,6 @@ ArticleCard.propTypes = {
     id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-  }).isRequired,
+    price: PropTypes.number.isRequired
+  }).isRequired
 };

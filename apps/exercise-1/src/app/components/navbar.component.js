@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,9 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { PowerSettingsNewOutlined } from '@material-ui/icons';
 
-import { isUserConnected } from '../modules/user/user.selectors';
+import { ROUTES_PATHS_BY_NAMES } from '../modules/routing/routing.constants';
 import { useUser } from '../modules/user/user.context';
-import { login, logout } from '../modules/user/user.actions';
+import { isUserConnected } from '../modules/user/user.selectors';
+import { logout } from '../modules/user/user.actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,7 @@ export default function NavBar() {
   const open = Boolean(anchorEl);
   const [userState, dispatch] = useUser();
   const isConnected = isUserConnected(userState);
+  const { push } = useHistory();
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -59,7 +61,7 @@ export default function NavBar() {
   };
 
   const logInAndOut = () => {
-    dispatch(isConnected ? logout() : login());
+    isConnected ? dispatch(logout()) : push(ROUTES_PATHS_BY_NAMES.login);
   };
 
   return (
@@ -69,12 +71,13 @@ export default function NavBar() {
           Shopping App
         </Typography>
         <IconButton
+          data-testid={`connect-${isConnected ? 'logout' : 'login'}-button`}
           edge="start"
           className={classnames([
             classes.menuButton,
             isConnected ? classes.loginButton : classes.logoutButton,
           ])}
-          aria-label={`${isConnected ? 'login' : 'logout'} button`}
+          aria-label={`${isConnected ? 'logout' : 'login'} button`}
           onClick={logInAndOut}
         >
           <PowerSettingsNewOutlined />

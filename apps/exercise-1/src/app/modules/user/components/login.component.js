@@ -21,19 +21,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(3, 0, 2)
+  }
 }));
 
 export const Login = () => {
@@ -57,7 +57,12 @@ export const Login = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit} noValidate>
+        <form
+          data-testid="login-form"
+          className={classes.form}
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -70,6 +75,7 @@ export const Login = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            data-testid="email-input"
           />
           <TextField
             variant="outlined"
@@ -83,6 +89,7 @@ export const Login = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            data-testid="password-input"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

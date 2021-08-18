@@ -43,7 +43,7 @@ export function Cart() {
 
   const removeItemFromList = useCallback(
     (id) => () => dispatch(removeFromCart(id)),
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -53,8 +53,9 @@ export function Cart() {
           Cart
         </Typography>
         <List aria-label="purchased-items-list">
-          {Object.values(articles).map((article) => (
+          {Object.values(articles).map((article, index) => (
             <ListItem
+              data-testid={`cart-item-${index}`}
               component={Link}
               to={`/articles/${article.slug}`}
               key={article.id}
@@ -68,6 +69,7 @@ export function Cart() {
               />
               <ListItemSecondaryAction>
                 <IconButton
+                  data-testid={`cart-item-${index}-delete`}
                   size="small"
                   onClick={removeItemFromList(article.id)}
                   edge="end"
@@ -79,7 +81,13 @@ export function Cart() {
             </ListItem>
           ))}
         </List>
-        <Typography align="right" gutterBottom variant="h6" component="h4">
+        <Typography
+          data-testid="cart-total"
+          align="right"
+          gutterBottom
+          variant="h6"
+          component="h4"
+        >
           Total Price: {total} $
         </Typography>
       </CardContent>
@@ -90,6 +98,7 @@ export function Cart() {
           size="small"
           color="secondary"
           variant="outlined"
+          data-testid="checkout-button"
         >
           Check out
         </Button>

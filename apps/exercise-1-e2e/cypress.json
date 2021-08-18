@@ -5,8 +5,10 @@
   "modifyObstructiveCode": false,
   "pluginsFile": "./src/plugins/index",
   "supportFile": "./src/support/index.ts",
-  "video": true,
+  "video": false,
   "videosFolder": "../../dist/cypress/apps/exercise-1-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/exercise-1-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "ignoreTestFiles": "**/common/**",
+  "testFiles": "**/*.feature"
 }

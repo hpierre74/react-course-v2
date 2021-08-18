@@ -1,10 +1,11 @@
-describe('exercise-3', () => {
+describe('articles', () => {
+  beforeEach(() => cy.visit('/'));
 
   it('should display each articles names', () => {
-    cy.visit('/').fixture('articles.json').then((articles) => {
+    cy.fixture('articles.json').then((articles) => {
       return articles.forEach((article) =>
         cy.getByDataTestId(`article-${article.id}`).contains(article.name)
       );
     });
   });
-});
+})
