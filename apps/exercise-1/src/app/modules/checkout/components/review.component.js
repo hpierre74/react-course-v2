@@ -37,16 +37,8 @@ export const getPaymentState = state => {
 export default function Review({ formState }) {
   const classes = useStyles();
   const [{ articles, total }] = useCart();
-  const {
-    firstName,
-    lastName,
-    address1,
-    address2,
-    city,
-    state,
-    zip,
-    country,
-  } = getShippingState(formState);
+  const { firstName, lastName, address1, address2, city, state, zip, country } =
+    getShippingState(formState);
   const { cardName, cardNumber, expDate } = getPaymentState(formState);
 
   console.log(articles, formState);

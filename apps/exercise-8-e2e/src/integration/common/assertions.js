@@ -24,5 +24,7 @@ Then('{string} should contain {string}', (selectorConstant, content) => {
 });
 
 Then('I should see {int} articles', itemNumber => {
-  cy.get(getConstant('articles list')).children().should('have.length', itemNumber);
+  cy.get(getConstant('articles list'))
+    .children()
+    .should('have.length', itemNumber);
 });
