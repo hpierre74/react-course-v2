@@ -14,9 +14,6 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "parserOptions": {
-        "project": ["apps/exercise-2/tsconfig.*?.json"]
-      },
       "rules": {
         "arrow-parens": ["error", "as-needed"],
         "object-curly-newline": "off",
