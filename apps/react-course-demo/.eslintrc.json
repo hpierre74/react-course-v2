@@ -27,5 +27,8 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ]
+  ],
+  "globals": {
+    "fetch": false
+  }
 }
