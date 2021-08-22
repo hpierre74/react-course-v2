@@ -17,8 +17,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@react-course-v2/course-hints": ["libs/course-hints/src/index.ts"],
-      "@react-course-v2/api": ["libs/api/src/index.ts"]
+      "@react-course-v2/api": ["libs/api/src/index.ts"],
+      "@react-course-v2/course-hints": ["libs/course-hints/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

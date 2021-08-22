@@ -6,7 +6,7 @@ Feature: Home page
 
   Scenario: Layout elements
     Then I should see "articles list"
-    And I should 7 articles
+    And I should see 7 articles
 
     When I click on "link to contact"
     Then I should be on the "contact" page
