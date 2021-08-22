@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useUser, useUserState, useUserDispatch } from '../user.context';
 
 describe('user.context', () => {

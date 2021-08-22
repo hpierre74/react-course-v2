@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './cart.actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, RESTORE_CART } from './cart.actions';
 
 export const initialState = {
   articles: {},
@@ -7,6 +7,10 @@ export const initialState = {
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
+    case RESTORE_CART: {
+      return { ...state, articles: action.articles, total: action.total };
+    }
+
     case ADD_TO_CART: {
       const { id } = action.article;
 
