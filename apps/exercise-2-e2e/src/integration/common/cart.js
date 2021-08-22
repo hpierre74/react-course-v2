@@ -3,7 +3,7 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps';
 import { getConstant } from '../../support/constants';
 
-Then('Cart total should be {int}', (price) => {
+Then('Cart total should be {int}', price => {
   cy.get(getConstant('cart total')).contains(`Total Price: ${price} $`);
 });
 

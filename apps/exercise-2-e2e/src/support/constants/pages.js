@@ -3,5 +3,5 @@ export default {
   checkout: '/checkout',
   about: '/about',
   contact: '/contact',
-  login: '/login'
+  login: '/login',
 };

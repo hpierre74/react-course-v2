@@ -42,7 +42,7 @@ export function Cart() {
   const [{ articles, total }, dispatch] = useCart();
 
   const removeItemFromList = useCallback(
-    (id) => () => dispatch(removeFromCart(id)),
+    id => () => dispatch(removeFromCart(id)),
     [dispatch],
   );
 

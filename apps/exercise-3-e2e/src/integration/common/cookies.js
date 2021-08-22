@@ -20,9 +20,9 @@ Given('Cookies are cleared', () => {
 Then(
   'I should have a cookie named {string} containing {string}',
   (cookieName, cookieValue) => {
-    cy.getCookies().then((cookies) => {
+    cy.getCookies().then(cookies => {
       expect(cookies).to.be.an('array');
-      const targetCookie = cookies.find((cookie) => cookie.name === cookieName);
+      const targetCookie = cookies.find(cookie => cookie.name === cookieName);
 
       expect(targetCookie)
         .to.be.an('object')

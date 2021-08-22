@@ -11,5 +11,5 @@ describe('cart', () => {
       cy.get('item foo add button').click();
       // assert cart contains two items, one item with two occurences, the other one with one
     });
-  })
+  });
 });

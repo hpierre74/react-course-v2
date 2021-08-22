@@ -18,7 +18,7 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 
-  on('file:preprocessor', (file) => {
+  on('file:preprocessor', file => {
     return file.filePath.includes('.feature')
       ? cucumber()(file)
       : preprocessTypescript(config)(file);

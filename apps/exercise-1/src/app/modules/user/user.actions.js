@@ -6,7 +6,7 @@ export const LOGOUT = 'user/LOGOUT';
 
 const encryptUserCredentials = (...args) => [...args];
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async dispatch => {
   try {
     const encryptedUser = encryptUserCredentials(email, password);
     const user = await signIn(encryptedUser);

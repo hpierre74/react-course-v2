@@ -21,7 +21,11 @@
       "parserOptions": {
         "project": ["apps/exercise-1/tsconfig.*?.json"]
       },
-      "rules": {}
+      "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "object-curly-newline": "off",
+        "object-curly-spacing": ["error", "always"]
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],

@@ -7,8 +7,8 @@ const App = () => {
   useEffect(() => {
     if (articles.length === 0) {
       getArticles()
-        .then((res) => setArticles(res))
-        .catch((err) => console.error(err));
+        .then(res => setArticles(res))
+        .catch(err => console.error(err));
     }
   }, [articles]);
 

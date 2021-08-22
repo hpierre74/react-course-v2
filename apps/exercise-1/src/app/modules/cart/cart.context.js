@@ -9,7 +9,7 @@ import { restoreCart } from './cart.actions';
 const CartStateContext = React.createContext();
 const CartDispatchContext = React.createContext();
 
-const persistCart = (cart) => () => {
+const persistCart = cart => () => {
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 

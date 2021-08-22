@@ -40,7 +40,9 @@ export const cartReducer = (state, action) => {
     }
 
     case REMOVE_FROM_CART: {
-      const targetArticle = Object.values(state.articles).find(article => article.id === action.id);
+      const targetArticle = Object.values(state.articles).find(
+        article => article.id === action.id,
+      );
       const targetOccurrences = targetArticle.occurrences;
       const isNumber = typeof targetOccurrences === 'number';
       const isSuperiorToOne = targetOccurrences > 1;
@@ -51,7 +53,10 @@ export const cartReducer = (state, action) => {
           ...state,
           articles: {
             ...state.articles,
-            [action.id]: { ...targetArticle, occurrences: targetOccurrences - 1 },
+            [action.id]: {
+              ...targetArticle,
+              occurrences: targetOccurrences - 1,
+            },
           },
           total: state.total - targetArticle.price,
         };
@@ -60,7 +65,8 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         articles: Object.keys(state.articles).reduce(
-          (acc, curr) => (action.id === curr ? acc : { ...acc, [curr]: state.articles[curr] }),
+          (acc, curr) =>
+            action.id === curr ? acc : { ...acc, [curr]: state.articles[curr] },
           {},
         ),
         total: state.total - targetArticle.price,
