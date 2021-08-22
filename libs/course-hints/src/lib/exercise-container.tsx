@@ -27,7 +27,7 @@ const renderers = {
   },
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   position: {
     position: 'fixed',
     bottom: 10,
@@ -110,7 +110,7 @@ export function SeeHints() {
 
   React.useEffect(() => {
     fetch('assets/README.md')
-      .then((res) => res.text())
+      .then(res => res.text())
       .then(setMarkdownFile)
       .catch(console.error);
   }, []);

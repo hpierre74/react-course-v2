@@ -48,11 +48,19 @@ function getStepContent(step, [formState, setFormState]) {
   switch (step) {
     case SHIPPING:
       return (
-        <AddressForm initialState={formState[SHIPPING]} step={step} setParentState={setFormState} />
+        <AddressForm
+          initialState={formState[SHIPPING]}
+          step={step}
+          setParentState={setFormState}
+        />
       );
     case PAYMENT:
       return (
-        <PaymentForm initialState={formState[PAYMENT]} step={step} setParentState={setFormState} />
+        <PaymentForm
+          initialState={formState[PAYMENT]}
+          step={step}
+          setParentState={setFormState}
+        />
       );
     case REVIEW:
       return (
@@ -107,8 +115,9 @@ function Checkout() {
                 Thank you for your order.
               </Typography>
               <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order confirmation, and will
-                send you an update when your order has shipped.
+                Your order number is #2001539. We have emailed your order
+                confirmation, and will send you an update when your order has
+                shipped.
               </Typography>
             </React.Fragment>
           ) : (

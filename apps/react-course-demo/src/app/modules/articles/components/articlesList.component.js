@@ -11,7 +11,7 @@ export function ArticlesList() {
 
   return (
     <Grid container spacing={4} data-testid="articles">
-      {articles.map((article) => (
+      {articles.map(article => (
         <ArticleCard key={article.id} article={article} />
       ))}
     </Grid>

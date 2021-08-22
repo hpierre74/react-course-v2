@@ -46,43 +46,21 @@ describe('<ArticleCard />', () => {
       expect(wrapper.find(Grid).exists()).toBeTruthy();
       expect(wrapper.find(Card).exists()).toBeTruthy();
       expect(wrapper.find(CardMedia).prop('image')).toBe(article.image);
+      expect(wrapper.find(CardContent).find(Typography).first().text()).toBe(
+        article.name,
+      );
       expect(
-        wrapper
-          .find(CardContent)
-          .find(Typography)
-          .first()
-          .text(),
-      ).toBe(article.name);
-      expect(
-        wrapper
-          .find(CardContent)
-          .find('div')
-          .find(Typography)
-          .first()
-          .text(),
+        wrapper.find(CardContent).find('div').find(Typography).first().text(),
       ).toBe(article.year);
       expect(
-        wrapper
-          .find(CardContent)
-          .find('div')
-          .find(Typography)
-          .last()
-          .text(),
+        wrapper.find(CardContent).find('div').find(Typography).last().text(),
       ).toBe(`${article.price} $`);
-      expect(
-        wrapper
-          .find(CardActions)
-          .find(Button)
-          .first()
-          .text(),
-      ).toBe('Add to Cart');
-      expect(
-        wrapper
-          .find(CardActions)
-          .find(Button)
-          .last()
-          .text(),
-      ).toBe('See more');
+      expect(wrapper.find(CardActions).find(Button).first().text()).toBe(
+        'Add to Cart',
+      );
+      expect(wrapper.find(CardActions).find(Button).last().text()).toBe(
+        'See more',
+      );
     });
   });
 

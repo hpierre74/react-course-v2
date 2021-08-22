@@ -14,7 +14,9 @@ const ArticlesProvider = ({ children }) => {
 
   return (
     <ArticlesStateContext.Provider value={state}>
-      <ArticlesDispatchContext.Provider value={dispatchThunk(dispatch, getState)}>
+      <ArticlesDispatchContext.Provider
+        value={dispatchThunk(dispatch, getState)}
+      >
         {children}
       </ArticlesDispatchContext.Provider>
     </ArticlesStateContext.Provider>
@@ -36,7 +38,9 @@ function useArticlesState() {
 function useArticlesDispatch() {
   const context = React.useContext(ArticlesDispatchContext);
   if (context === undefined) {
-    throw new Error('useArticlesDispatch must be used within a ArticlesProvider');
+    throw new Error(
+      'useArticlesDispatch must be used within a ArticlesProvider',
+    );
   }
   return context;
 }

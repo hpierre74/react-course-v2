@@ -16,7 +16,7 @@ import { login } from '../user.actions';
 import { useInput } from '../../../hooks/useInput.hook';
 import { Container } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -43,7 +43,7 @@ export const Login = () => {
   const [email, handleEmailChange] = useInput();
   const [password, handlePasswordChange] = useInput();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     dispatch(login(email, password));
   };

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, act } from '@testing-library/react';
-import mockArticles from '../assets/articles.json'
+import mockArticles from '../assets/articles.json';
 import App from './app';
 
 jest.mock('@react-course-v2/api', () => ({
-  getArticles: jest.fn().mockResolvedValue(mockArticles)
+  getArticles: jest.fn().mockResolvedValue(mockArticles),
 }));
 
 describe('App', () => {

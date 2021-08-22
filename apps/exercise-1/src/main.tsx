@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ExerciseContainer } from '@react-course-v2/course-hints'
+import { ExerciseContainer } from '@react-course-v2/course-hints';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
 import App from './app/app';
@@ -12,8 +12,8 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <ExerciseContainer>
-        <App />
+      <App />
     </ExerciseContainer>
   </ThemeProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

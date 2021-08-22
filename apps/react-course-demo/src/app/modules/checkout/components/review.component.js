@@ -37,9 +37,16 @@ export const getPaymentState = state => {
 export default function Review({ formState }) {
   const classes = useStyles();
   const [{ articles, total }] = useCart();
-  const { firstName, lastName, address1, address2, city, state, zip, country } = getShippingState(
-    formState,
-  );
+  const {
+    firstName,
+    lastName,
+    address1,
+    address2,
+    city,
+    state,
+    zip,
+    country,
+  } = getShippingState(formState);
   const { cardName, cardNumber, expDate } = getPaymentState(formState);
 
   console.log(articles, formState);
@@ -52,9 +59,15 @@ export default function Review({ formState }) {
       <List disablePadding>
         {Object.values(articles).map(article => (
           <ListItem className={classes.listItem} key={article.name}>
-            <ListItemText primary={article.name} secondary={`x ${articles.occurrences || 1}`} />
+            <ListItemText
+              primary={article.name}
+              secondary={`x ${articles.occurrences || 1}`}
+            />
             <Typography variant="body2">
-              ${article.occurrences ? article.occurrences * article.price : article.price}
+              $
+              {article.occurrences
+                ? article.occurrences * article.price
+                : article.price}
             </Typography>
           </ListItem>
         ))}

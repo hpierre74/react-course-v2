@@ -16,7 +16,7 @@ import { isUserConnected } from '../modules/user/user.selectors';
 import { useUser } from '../modules/user/user.context';
 import { login, logout } from '../modules/user/user.actions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
@@ -50,7 +50,7 @@ export default function NavBar() {
   const [userState, dispatch] = useUser();
   const isConnected = isUserConnected(userState);
 
-  const handleMenu = (event) => {
+  const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
 

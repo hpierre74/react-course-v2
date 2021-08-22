@@ -42,8 +42,8 @@ export function Cart() {
   const [{ articles, total }, dispatch] = useCart();
 
   const removeItemFromList = useCallback(
-    (id) => () => dispatch(removeFromCart(id)),
-    [dispatch]
+    id => () => dispatch(removeFromCart(id)),
+    [dispatch],
   );
 
   return (
@@ -53,7 +53,7 @@ export function Cart() {
           Cart
         </Typography>
         <List aria-label="purchased-items-list">
-          {Object.values(articles).map((article) => (
+          {Object.values(articles).map(article => (
             <ListItem
               component={Link}
               to={`/articles/${article.slug}`}
