@@ -70,117 +70,29 @@
     }
   },
   "projects": {
-    "react-course-demo": {
-      "root": "apps/react-course-demo",
-      "sourceRoot": "apps/react-course-demo/src",
-      "projectType": "application",
+    "api": {
+      "root": "libs/api",
+      "sourceRoot": "libs/api/src",
+      "projectType": "library",
       "schematics": {},
       "architect": {
-        "build": {
-          "builder": "@nrwl/web:build",
-          "options": {
-            "outputPath": "dist/apps/react-course-demo",
-            "index": "apps/react-course-demo/src/index.html",
-            "main": "apps/react-course-demo/src/main.tsx",
-            "polyfills": "apps/react-course-demo/src/polyfills.ts",
-            "tsConfig": "apps/react-course-demo/tsconfig.app.json",
-            "assets": [
-              "apps/react-course-demo/src/favicon.ico",
-              "apps/react-course-demo/src/assets"
-            ],
-            "styles": ["apps/react-course-demo/src/styles.css"],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/react-course-demo/src/environments/environment.ts",
-                  "with": "apps/react-course-demo/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          },
-          "outputs": ["{options.outputPath}"]
-        },
-        "serve": {
-          "builder": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "react-course-demo:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "react-course-demo:build:production"
-            }
-          }
-        },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/react-course-demo/**/*.js",
-              "apps/react-course-demo/**/*.jsx",
-              "apps/react-course-demo/**/*.ts",
-              "apps/react-course-demo/**/*.tsx",
-              "apps/react-course-demo/**/*.spec.ts",
-              "apps/react-course-demo/**/*.spec.tsx",
-              "apps/react-course-demo/**/*.spec.js",
-              "apps/react-course-demo/**/*.spec.jsx",
-              "apps/react-course-demo/**/*.d.ts"
-            ]
+            "tsConfig": [
+              "libs/api/tsconfig.lib.json",
+              "libs/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/react-course-demo/jest.config.js",
+            "jestConfig": "libs/api/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": ["coverage/apps/react-course-demo"]
-        }
-      }
-    },
-    "react-course-demo-e2e": {
-      "root": "apps/react-course-demo-e2e",
-      "sourceRoot": "apps/react-course-demo-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/react-course-demo-e2e/cypress.json",
-            "tsConfig": "apps/react-course-demo-e2e/tsconfig.e2e.json",
-            "devServerTarget": "react-course-demo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "react-course-demo:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/react-course-demo-e2e/src/**/*.ts",
-              "apps/react-course-demo-e2e/src/**/*.js"
-            ]
-          }
+          "outputs": ["coverage/libs/api"]
         }
       }
     },
@@ -327,32 +239,6 @@
               "apps/exercise-1-e2e/src/**/*.js"
             ]
           }
-        }
-      }
-    },
-    "api": {
-      "root": "libs/api",
-      "sourceRoot": "libs/api/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/api/tsconfig.lib.json",
-              "libs/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/api/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/api/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/api"]
         }
       }
     },
@@ -566,6 +452,732 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/exercise-3-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-4": {
+      "root": "apps/exercise-4",
+      "sourceRoot": "apps/exercise-4/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-4",
+            "index": "apps/exercise-4/src/index.html",
+            "main": "apps/exercise-4/src/main.tsx",
+            "polyfills": "apps/exercise-4/src/polyfills.ts",
+            "tsConfig": "apps/exercise-4/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-4/src/favicon.ico",
+              "apps/exercise-4/src/assets"
+            ],
+            "styles": ["apps/exercise-4/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-4/src/environments/environment.ts",
+                  "with": "apps/exercise-4/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-4:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-4:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-4/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-4"],
+          "options": {
+            "jestConfig": "apps/exercise-4/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-4-e2e": {
+      "root": "apps/exercise-4-e2e",
+      "sourceRoot": "apps/exercise-4-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-4-e2e/cypress.json",
+            "tsConfig": "apps/exercise-4-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-4:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-4:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-4-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-5": {
+      "root": "apps/exercise-5",
+      "sourceRoot": "apps/exercise-5/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-5",
+            "index": "apps/exercise-5/src/index.html",
+            "main": "apps/exercise-5/src/main.tsx",
+            "polyfills": "apps/exercise-5/src/polyfills.ts",
+            "tsConfig": "apps/exercise-5/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-5/src/favicon.ico",
+              "apps/exercise-5/src/assets"
+            ],
+            "styles": ["apps/exercise-5/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-5/src/environments/environment.ts",
+                  "with": "apps/exercise-5/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-5:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-5:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-5/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-5"],
+          "options": {
+            "jestConfig": "apps/exercise-5/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-5-e2e": {
+      "root": "apps/exercise-5-e2e",
+      "sourceRoot": "apps/exercise-5-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-5-e2e/cypress.json",
+            "tsConfig": "apps/exercise-5-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-5:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-5:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-5-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-6": {
+      "root": "apps/exercise-6",
+      "sourceRoot": "apps/exercise-6/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-6",
+            "index": "apps/exercise-6/src/index.html",
+            "main": "apps/exercise-6/src/main.tsx",
+            "polyfills": "apps/exercise-6/src/polyfills.ts",
+            "tsConfig": "apps/exercise-6/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-6/src/favicon.ico",
+              "apps/exercise-6/src/assets"
+            ],
+            "styles": ["apps/exercise-6/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-6/src/environments/environment.ts",
+                  "with": "apps/exercise-6/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-6:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-6:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-6/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-6"],
+          "options": {
+            "jestConfig": "apps/exercise-6/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-6-e2e": {
+      "root": "apps/exercise-6-e2e",
+      "sourceRoot": "apps/exercise-6-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-6-e2e/cypress.json",
+            "tsConfig": "apps/exercise-6-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-6:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-6:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-6-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-7": {
+      "root": "apps/exercise-7",
+      "sourceRoot": "apps/exercise-7/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-7",
+            "index": "apps/exercise-7/src/index.html",
+            "main": "apps/exercise-7/src/main.tsx",
+            "polyfills": "apps/exercise-7/src/polyfills.ts",
+            "tsConfig": "apps/exercise-7/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-7/src/favicon.ico",
+              "apps/exercise-7/src/assets"
+            ],
+            "styles": ["apps/exercise-7/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-7/src/environments/environment.ts",
+                  "with": "apps/exercise-7/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-7:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-7:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-7/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-7"],
+          "options": {
+            "jestConfig": "apps/exercise-7/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-7-e2e": {
+      "root": "apps/exercise-7-e2e",
+      "sourceRoot": "apps/exercise-7-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-7-e2e/cypress.json",
+            "tsConfig": "apps/exercise-7-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-7:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-7:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-7-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-8": {
+      "root": "apps/exercise-8",
+      "sourceRoot": "apps/exercise-8/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-8",
+            "index": "apps/exercise-8/src/index.html",
+            "main": "apps/exercise-8/src/main.tsx",
+            "polyfills": "apps/exercise-8/src/polyfills.ts",
+            "tsConfig": "apps/exercise-8/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-8/src/favicon.ico",
+              "apps/exercise-8/src/assets"
+            ],
+            "styles": ["apps/exercise-8/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-8/src/environments/environment.ts",
+                  "with": "apps/exercise-8/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-8:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-8:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-8/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-8"],
+          "options": {
+            "jestConfig": "apps/exercise-8/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-8-e2e": {
+      "root": "apps/exercise-8-e2e",
+      "sourceRoot": "apps/exercise-8-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-8-e2e/cypress.json",
+            "tsConfig": "apps/exercise-8-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-8:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-8:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-8-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "exercise-9": {
+      "root": "apps/exercise-9",
+      "sourceRoot": "apps/exercise-9/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/exercise-9",
+            "index": "apps/exercise-9/src/index.html",
+            "main": "apps/exercise-9/src/main.tsx",
+            "polyfills": "apps/exercise-9/src/polyfills.ts",
+            "tsConfig": "apps/exercise-9/tsconfig.app.json",
+            "assets": [
+              "apps/exercise-9/src/favicon.ico",
+              "apps/exercise-9/src/assets"
+            ],
+            "styles": ["apps/exercise-9/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/exercise-9/src/environments/environment.ts",
+                  "with": "apps/exercise-9/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "exercise-9:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "exercise-9:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-9/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/exercise-9"],
+          "options": {
+            "jestConfig": "apps/exercise-9/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "exercise-9-e2e": {
+      "root": "apps/exercise-9-e2e",
+      "sourceRoot": "apps/exercise-9-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/exercise-9-e2e/cypress.json",
+            "tsConfig": "apps/exercise-9-e2e/tsconfig.e2e.json",
+            "devServerTarget": "exercise-9:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "exercise-9:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/exercise-9-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "react-course-demo": {
+      "root": "apps/react-course-demo",
+      "sourceRoot": "apps/react-course-demo/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/react-course-demo",
+            "index": "apps/react-course-demo/src/index.html",
+            "main": "apps/react-course-demo/src/main.tsx",
+            "polyfills": "apps/react-course-demo/src/polyfills.ts",
+            "tsConfig": "apps/react-course-demo/tsconfig.app.json",
+            "assets": [
+              "apps/react-course-demo/src/favicon.ico",
+              "apps/react-course-demo/src/assets"
+            ],
+            "styles": ["apps/react-course-demo/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/react-course-demo/src/environments/environment.ts",
+                  "with": "apps/react-course-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "react-course-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "react-course-demo:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/react-course-demo/**/*.js",
+              "apps/react-course-demo/**/*.jsx",
+              "apps/react-course-demo/**/*.ts",
+              "apps/react-course-demo/**/*.tsx",
+              "apps/react-course-demo/**/*.spec.ts",
+              "apps/react-course-demo/**/*.spec.tsx",
+              "apps/react-course-demo/**/*.spec.js",
+              "apps/react-course-demo/**/*.spec.jsx",
+              "apps/react-course-demo/**/*.d.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/react-course-demo/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/react-course-demo"]
+        }
+      }
+    },
+    "react-course-demo-e2e": {
+      "root": "apps/react-course-demo-e2e",
+      "sourceRoot": "apps/react-course-demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/react-course-demo-e2e/cypress.json",
+            "tsConfig": "apps/react-course-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react-course-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "react-course-demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/react-course-demo-e2e/src/**/*.ts",
+              "apps/react-course-demo-e2e/src/**/*.js"
+            ]
           }
         }
       }

@@ -23,12 +23,8 @@
     }
   },
   "projects": {
-    "react-course-demo": {
+    "api": {
       "tags": []
-    },
-    "react-course-demo-e2e": {
-      "tags": [],
-      "implicitDependencies": ["react-course-demo"]
     },
     "course-hints": {
       "tags": []
@@ -39,9 +35,6 @@
     "exercise-1-e2e": {
       "tags": [],
       "implicitDependencies": ["exercise-1"]
-    },
-    "api": {
-      "tags": []
     },
     "exercise-2": {
       "tags": []
@@ -56,6 +49,55 @@
     "exercise-3-e2e": {
       "tags": [],
       "implicitDependencies": ["exercise-3"]
+    },
+    "exercise-4": {
+      "tags": []
+    },
+    "exercise-4-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-4"]
+    },
+    "exercise-5": {
+      "tags": []
+    },
+    "exercise-5-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-5"]
+    },
+    "exercise-6": {
+      "tags": []
+    },
+    "exercise-6-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-6"]
+    },
+    "exercise-7": {
+      "tags": []
+    },
+    "exercise-7-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-7"]
+    },
+    "exercise-8": {
+      "tags": []
+    },
+    "exercise-8-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-8"]
+    },
+    "exercise-9": {
+      "tags": []
+    },
+    "exercise-9-e2e": {
+      "tags": [],
+      "implicitDependencies": ["exercise-9"]
+    },
+    "react-course-demo": {
+      "tags": []
+    },
+    "react-course-demo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["react-course-demo"]
     }
   }
 }
