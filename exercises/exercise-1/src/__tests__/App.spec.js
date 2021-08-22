@@ -13,7 +13,9 @@ const emptyArray = [];
 
 ApiUtils.getArticles = jest.fn().mockResolvedValue(MockedArticles);
 
-jest.mock('react', () => global.mockReactWithHooks({ effect: true, state: true }));
+jest.mock('react', () =>
+  global.mockReactWithHooks({ effect: true, state: true }),
+);
 
 const getWrapper = () => shallow(<App />);
 
@@ -38,7 +40,9 @@ xdescribe('App', () => {
 
   describe('Effects checks', () => {
     it('should call useEffect with a function and an empty array', () => {
-      expect(useEffect).toHaveBeenCalledWith(expect.any(Function), [emptyArray]);
+      expect(useEffect).toHaveBeenCalledWith(expect.any(Function), [
+        emptyArray,
+      ]);
     });
 
     it('should call getArticles once', () => {

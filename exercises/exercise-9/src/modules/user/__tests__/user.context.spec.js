@@ -2,7 +2,12 @@ import React from 'react';
 
 import { shallow } from 'enzyme';
 
-import { useUser, useUserState, useUserDispatch, UserProvider } from '../user.context';
+import {
+  useUser,
+  useUserState,
+  useUserDispatch,
+  UserProvider,
+} from '../user.context';
 
 describe('user.context', () => {
   describe('<UserProvider />', () => {

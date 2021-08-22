@@ -1,7 +1,7 @@
 import { RECEIVED_ARTICLES, requestArticles } from '../articles.actions';
 
 jest.mock('@react-course-v2/api', () => ({
-  getArticles: jest.fn().mockResolvedValue('foo')
+  getArticles: jest.fn().mockResolvedValue('foo'),
 }));
 
 describe('articles.actions', () => {
@@ -14,7 +14,7 @@ describe('articles.actions', () => {
     await requestArticles()(dispatch);
     expect(dispatch).toBeCalledWith({
       type: RECEIVED_ARTICLES,
-      articles: 'foo'
+      articles: 'foo',
     });
   });
 });

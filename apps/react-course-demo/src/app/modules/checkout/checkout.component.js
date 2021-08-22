@@ -13,7 +13,7 @@ import Review from './components/review.component';
 import { useStepperForm } from '../../hooks/useStepperForm.hook';
 import { SHIPPING, PAYMENT, REVIEW, steps } from './checkout.constants';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -107,7 +107,7 @@ function Checkout() {
           Checkout
         </Typography>
         <Stepper activeStep={activeStep} className={classes.stepper}>
-          {steps.map((label) => (
+          {steps.map(label => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>

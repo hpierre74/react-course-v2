@@ -12,7 +12,10 @@ const UserDispatchContext = React.createContext();
 const UserProvider = ({ children }) => {
   const user = usePersistedUser();
   const updatedState = user && { user };
-  const [state, dispatch] = React.useReducer(userReducer, updatedState || initialState);
+  const [state, dispatch] = React.useReducer(
+    userReducer,
+    updatedState || initialState,
+  );
   const getState = React.useCallback(() => state, [state]);
   return (
     <UserStateContext.Provider value={state}>

@@ -17,12 +17,19 @@ import emoji from 'emoji-dictionary';
 
 import instructionsMd from './instructions.md';
 
-const emojiSupport = text => text.value.replace(/:\w+:/gi, name => emoji.getUnicode(name) || name);
+const emojiSupport = text =>
+  text.value.replace(/:\w+:/gi, name => emoji.getUnicode(name) || name);
 
 const renderers = {
   text: emojiSupport,
   code: ({ language, value }) => {
-    return <SyntaxHighlighter style={vscDarkPlus} language={language} children={value} />;
+    return (
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={language}
+        children={value}
+      />
+    );
   },
 };
 

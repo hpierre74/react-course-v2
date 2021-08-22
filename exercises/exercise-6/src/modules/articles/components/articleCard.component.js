@@ -48,7 +48,12 @@ export function ArticleCard({ article }) {
           </div>
         </CardContent>
         <CardActions>
-          <Button onClick={() => {}} size="small" color="secondary" variant="outlined">
+          <Button
+            onClick={() => {}}
+            size="small"
+            color="secondary"
+            variant="outlined"
+          >
             Lorem
           </Button>
           <Button

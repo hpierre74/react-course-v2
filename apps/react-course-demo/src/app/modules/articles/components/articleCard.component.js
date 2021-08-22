@@ -53,10 +53,17 @@ export function ArticleCard({ article }) {
           </div>
         </CardContent>
         <CardActions>
-          <Button onClick={dispatchAddToCart} size="small" color="secondary" variant="outlined">
+          <Button
+            data-testid={`add-to-cart-${slug}`}
+            onClick={dispatchAddToCart}
+            size="small"
+            color="secondary"
+            variant="outlined"
+          >
             Add to Cart
           </Button>
           <Button
+            data-testid={`go-to-article-${slug}`}
             size="small"
             component={Link}
             to={`/articles/${slug}`}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getArticles } from '../utils/api.utils';
+import { getArticles } from '@react-course-v2/api';
 
 export const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -10,9 +10,7 @@ export const HomePage = () => {
     if (articles.length !== 0) {
       return;
     }
-    getArticles()
-      .then(setArticles)
-      .catch(console.error);
+    getArticles().then(setArticles).catch(console.error);
   }, [articles]);
 
   return (

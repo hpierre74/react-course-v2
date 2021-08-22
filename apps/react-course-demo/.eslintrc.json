@@ -9,7 +9,11 @@
       }
     ]
   },
-  "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc"],
+  "extends": [
+    "plugin:react-hooks/recommended",
+    "plugin:@nrwl/nx/react",
+    "../../.eslintrc"
+  ],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
@@ -17,7 +21,11 @@
       "parserOptions": {
         "project": ["apps/react-course-demo/tsconfig.*?.json"]
       },
-      "rules": {}
+      "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "object-curly-newline": "off",
+        "object-curly-spacing": ["error", "always"]
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],
@@ -27,5 +35,8 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ]
+  ],
+  "globals": {
+    "fetch": false
+  }
 }

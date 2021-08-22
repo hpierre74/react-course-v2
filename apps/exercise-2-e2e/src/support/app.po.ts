@@ -1,1 +1,2 @@
-export const getArticlesList = () => cy.get('ul > li');
+export const getArticlesListItem = index =>
+  cy.get(`ul > li:nth-of-type(${index})`);

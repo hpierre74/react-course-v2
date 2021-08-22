@@ -8,7 +8,9 @@ import { Button, TextField } from '@material-ui/core';
 import { login } from '../../user.actions';
 
 jest.mock('../../user.context.js', () => ({
-  useUserDispatch: jest.fn().mockReturnValue(args => (typeof args === 'function' ? args() : args)),
+  useUserDispatch: jest
+    .fn()
+    .mockReturnValue(args => (typeof args === 'function' ? args() : args)),
 }));
 
 jest.mock('../../user.actions.js', () => ({ login: jest.fn() }));
@@ -37,20 +39,10 @@ describe('<Login/>', () => {
 
     describe('TextFields', () => {
       it('should render a first TextField', () => {
-        expect(
-          wrapper
-            .find(TextField)
-            .first()
-            .prop('name'),
-        ).toBe('email');
+        expect(wrapper.find(TextField).first().prop('name')).toBe('email');
       });
       it('should render a second TextField', () => {
-        expect(
-          wrapper
-            .find(TextField)
-            .last()
-            .prop('name'),
-        ).toBe('password');
+        expect(wrapper.find(TextField).last().prop('name')).toBe('password');
       });
     });
   });

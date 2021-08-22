@@ -95,7 +95,11 @@ export const initialState = { someMeaningfulKey: null, otherThing: true };
 export const reducerFoo = (state = initialState, action) => {
   switch (action.type) {
     case SOME_ACTION_TYPE:
-      return { ...state, someMeaningfulKey: action.payload, otherThing: action.bar };
+      return {
+        ...state,
+        someMeaningfulKey: action.payload,
+        otherThing: action.bar,
+      };
     default:
       return state;
   }

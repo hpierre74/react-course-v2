@@ -53,7 +53,12 @@ export function ArticleCard({ article }) {
           </div>
         </CardContent>
         <CardActions>
-          <Button onClick={dispatchAddToCart} size="small" color="secondary" variant="outlined">
+          <Button
+            onClick={dispatchAddToCart}
+            size="small"
+            color="secondary"
+            variant="outlined"
+          >
             Add to Cart
           </Button>
           <Button

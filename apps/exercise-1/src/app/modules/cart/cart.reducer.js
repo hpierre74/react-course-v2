@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './cart.actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, RESTORE_CART } from './cart.actions';
 
 export const initialState = {
   articles: {},
@@ -7,6 +7,10 @@ export const initialState = {
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
+    case RESTORE_CART: {
+      return { ...state, articles: action.articles, total: action.total };
+    }
+
     case ADD_TO_CART: {
       const { id } = action.article;
 
@@ -36,7 +40,9 @@ export const cartReducer = (state, action) => {
     }
 
     case REMOVE_FROM_CART: {
-      const targetArticle = Object.values(state.articles).find(article => article.id === action.id);
+      const targetArticle = Object.values(state.articles).find(
+        article => article.id === action.id,
+      );
       const targetOccurrences = targetArticle.occurrences;
       const isNumber = typeof targetOccurrences === 'number';
       const isSuperiorToOne = targetOccurrences > 1;
@@ -47,7 +53,10 @@ export const cartReducer = (state, action) => {
           ...state,
           articles: {
             ...state.articles,
-            [action.id]: { ...targetArticle, occurrences: targetOccurrences - 1 },
+            [action.id]: {
+              ...targetArticle,
+              occurrences: targetOccurrences - 1,
+            },
           },
           total: state.total - targetArticle.price,
         };
@@ -56,7 +65,8 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         articles: Object.keys(state.articles).reduce(
-          (acc, curr) => (action.id === curr ? acc : { ...acc, [curr]: state.articles[curr] }),
+          (acc, curr) =>
+            action.id === curr ? acc : { ...acc, [curr]: state.articles[curr] },
           {},
         ),
         total: state.total - targetArticle.price,

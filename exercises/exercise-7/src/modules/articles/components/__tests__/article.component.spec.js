@@ -25,9 +25,7 @@ describe('<Article />', () => {
   describe('Markup checks', () => {
     it('should contain the correct markup', () => {
       expect(
-        getWrapper(MockedArticles[0].slug)
-          .find('ArticleCard')
-          .prop('article'),
+        getWrapper(MockedArticles[0].slug).find('ArticleCard').prop('article'),
       ).toMatchObject(MockedArticles[0]);
     });
 

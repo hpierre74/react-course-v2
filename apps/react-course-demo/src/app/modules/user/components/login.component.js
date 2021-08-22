@@ -16,7 +16,7 @@ import { login } from '../user.actions';
 import { useInput } from '../../../hooks/useInput.hook';
 import { Container } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -43,7 +43,7 @@ export const Login = () => {
   const [email, handleEmailChange] = useInput();
   const [password, handlePasswordChange] = useInput();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     dispatch(login(email, password));
   };
@@ -57,7 +57,12 @@ export const Login = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit} noValidate>
+        <form
+          data-testid="login-form"
+          className={classes.form}
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -70,6 +75,7 @@ export const Login = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            data-testid="email-input"
           />
           <TextField
             variant="outlined"
@@ -83,6 +89,7 @@ export const Login = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            data-testid="password-input"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

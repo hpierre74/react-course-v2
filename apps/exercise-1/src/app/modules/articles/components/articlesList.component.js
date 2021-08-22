@@ -10,8 +10,8 @@ export function ArticlesList() {
   const articles = useArticlesSelector();
 
   return (
-    <Grid container spacing={4} data-testid="articles">
-      {articles.map((article) => (
+    <Grid container spacing={4} data-testid="articles-list">
+      {articles.map(article => (
         <ArticleCard key={article.id} article={article} />
       ))}
     </Grid>

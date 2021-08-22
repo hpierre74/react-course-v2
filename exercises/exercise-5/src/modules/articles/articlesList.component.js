@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import { ArticleCard } from './articleCard.component';
-import { getArticles } from '../../utils/api.utils';
+import { getArticles } from '@react-course-v2/api';
 
 export function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -12,9 +12,7 @@ export function ArticlesList() {
     if (articles.length !== 0) {
       return;
     }
-    getArticles()
-      .then(setArticles)
-      .catch(console.error);
+    getArticles().then(setArticles).catch(console.error);
   }, [articles]);
 
   return (

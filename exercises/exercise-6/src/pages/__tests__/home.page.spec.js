@@ -23,7 +23,9 @@ describe('<HomePage />', () => {
   describe('Markup checks', () => {
     it('should contain the correct markup', () => {
       expect(wrapper.find('Layout').exists()).toBeTruthy();
-      expect(wrapper.find(`[data-testid='app-title']`).text()).toBe('Home Page');
+      expect(wrapper.find(`[data-testid='app-title']`).text()).toBe(
+        'Home Page',
+      );
       expect(wrapper.find(`ArticlesList`).exists()).toBeTruthy();
     });
   });

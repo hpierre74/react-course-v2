@@ -6,7 +6,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import App from './app/app';
 
 const theme = createMuiTheme({
-  spacing: (n) => n * 4,
+  spacing: n => n * 4,
 });
 
 ReactDOM.render(
@@ -15,5 +15,5 @@ ReactDOM.render(
       <App />
     </ExerciseContainer>
   </ThemeProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

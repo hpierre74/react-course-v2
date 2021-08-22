@@ -13,7 +13,10 @@ jest.mock('../../cart.context', () => ({
 
 const getWrapper = () => shallow(<Cart />);
 
-const articles = MockedArticles.reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {});
+const articles = MockedArticles.reduce(
+  (acc, curr) => ({ ...acc, [curr.id]: curr }),
+  {},
+);
 
 describe('<Cart />', () => {
   let wrapper;
@@ -45,7 +48,12 @@ describe('<Cart />', () => {
           .find(List)
           .children()
           .map(node => node.prop('to')),
-      ).toEqual(MockedArticles.reduce((acc, curr) => [...acc, `/articles/${curr.slug}`], []));
+      ).toEqual(
+        MockedArticles.reduce(
+          (acc, curr) => [...acc, `/articles/${curr.slug}`],
+          [],
+        ),
+      );
     });
   });
 });

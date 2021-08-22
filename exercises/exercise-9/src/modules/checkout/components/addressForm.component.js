@@ -64,7 +64,9 @@ function AddressForm({ step, setParentState, initialState }) {
         ))}
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+            control={
+              <Checkbox color="secondary" name="saveAddress" value="yes" />
+            }
             label="Use this address for payment details"
           />
         </Grid>

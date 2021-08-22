@@ -23,7 +23,7 @@ export const GridTextField = memo(
         />
       </Grid>
     );
-  }
+  },
 );
 
 GridTextField.displayName = 'GridTextField';
@@ -33,5 +33,5 @@ GridTextField.propTypes = {
   gridProps: PropTypes.object.isRequired,
   inputName: PropTypes.string.isRequired,
   onBlur: PropTypes.func.isRequired,
-  initialState: PropTypes.any
+  initialState: PropTypes.any,
 };

@@ -1,0 +1,28 @@
+{
+  "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/exercise-3/tsconfig.*?.json"]
+      },
+      "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "object-curly-newline": "off",
+        "object-curly-spacing": ["error", "always"]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ],
+  "globals": {
+    "fetch": false
+  }
+}

@@ -5,7 +5,10 @@ describe('cart.reducer', () => {
   describe('ADD_TO_CART', () => {
     it('should set cart in the state', () => {
       expect(
-        cartReducer(initialState, { type: ADD_TO_CART, article: { id: 'foo', price: 5 } }),
+        cartReducer(initialState, {
+          type: ADD_TO_CART,
+          article: { id: 'foo', price: 5 },
+        }),
       ).toMatchObject({
         ...initialState,
         articles: { foo: { id: 'foo', price: 5 } },
@@ -21,7 +24,10 @@ describe('cart.reducer', () => {
       };
 
       expect(
-        cartReducer(state, { type: ADD_TO_CART, article: { id: 'foo', price: 5 } }),
+        cartReducer(state, {
+          type: ADD_TO_CART,
+          article: { id: 'foo', price: 5 },
+        }),
       ).toMatchObject({
         ...state,
         articles: { foo: { id: 'foo', price: 5, occurrences: 2 } },
@@ -37,7 +43,10 @@ describe('cart.reducer', () => {
       };
 
       expect(
-        cartReducer(state, { type: ADD_TO_CART, article: { id: 'foo', price: 5 } }),
+        cartReducer(state, {
+          type: ADD_TO_CART,
+          article: { id: 'foo', price: 5 },
+        }),
       ).toMatchObject({
         ...state,
         articles: { foo: { id: 'foo', price: 5, occurrences: 3 } },
@@ -54,7 +63,9 @@ describe('cart.reducer', () => {
         total: 10,
       };
 
-      expect(cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' })).toMatchObject({
+      expect(
+        cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' }),
+      ).toMatchObject({
         ...state,
         articles: { foo: { id: 'foo', price: 5, occurrences: 1 } },
         total: 5,
@@ -68,7 +79,9 @@ describe('cart.reducer', () => {
         total: 5,
       };
 
-      expect(cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' })).toMatchObject({
+      expect(
+        cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' }),
+      ).toMatchObject({
         ...state,
         articles: {},
         total: 0,
@@ -82,7 +95,9 @@ describe('cart.reducer', () => {
         total: 5,
       };
 
-      expect(cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' })).toMatchObject({
+      expect(
+        cartReducer(state, { type: REMOVE_FROM_CART, id: 'foo' }),
+      ).toMatchObject({
         ...state,
         articles: {},
         total: 0,

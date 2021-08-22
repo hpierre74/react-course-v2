@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/apps/exercise-1',
     '<rootDir>/libs/api',
     '<rootDir>/apps/exercise-2',
+    '<rootDir>/apps/exercise-3',
   ],
 };

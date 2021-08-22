@@ -1,4 +1,9 @@
-import { addToCart, removeFromCart, ADD_TO_CART, REMOVE_FROM_CART } from '../cart.actions';
+import {
+  addToCart,
+  removeFromCart,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+} from '../cart.actions';
 
 describe('cart.actions', () => {
   let dispatch;
@@ -14,6 +19,9 @@ describe('cart.actions', () => {
 
   it('should dispatch getArticles result', async () => {
     dispatch(removeFromCart('foo'));
-    return expect(dispatch).toBeCalledWith({ type: REMOVE_FROM_CART, id: 'foo' });
+    return expect(dispatch).toBeCalledWith({
+      type: REMOVE_FROM_CART,
+      id: 'foo',
+    });
   });
 });

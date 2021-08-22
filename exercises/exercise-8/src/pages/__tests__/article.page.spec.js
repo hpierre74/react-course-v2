@@ -6,7 +6,9 @@ import { ArticlePage } from '../article.page';
 
 let wrapper;
 
-jest.mock('react-router-dom', () => ({ useParams: jest.fn().mockReturnValue({ id: 'foo' }) }));
+jest.mock('react-router-dom', () => ({
+  useParams: jest.fn().mockReturnValue({ id: 'foo' }),
+}));
 
 const getWrapper = () => shallow(<ArticlePage />);
 

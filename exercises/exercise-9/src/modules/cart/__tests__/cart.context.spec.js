@@ -2,7 +2,12 @@ import React from 'react';
 
 import { shallow } from 'enzyme';
 
-import { useCart, useCartState, useCartDispatch, CartProvider } from '../cart.context';
+import {
+  useCart,
+  useCartState,
+  useCartDispatch,
+  CartProvider,
+} from '../cart.context';
 
 describe('cart.context', () => {
   describe('<CartProvider />', () => {

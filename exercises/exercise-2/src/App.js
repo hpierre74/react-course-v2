@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getArticles } from './utils/api.utils';
+import { getArticles } from '@react-course-v2/api';
 
 const App = () => {
   const [articles, setArticles] = useState([]);

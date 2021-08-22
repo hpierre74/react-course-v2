@@ -14,12 +14,19 @@ import instructionsMd from './instructions.md';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import emoji from 'emoji-dictionary';
 
-const emojiSupport = text => text.value.replace(/:\w+:/gi, name => emoji.getUnicode(name) || name);
+const emojiSupport = text =>
+  text.value.replace(/:\w+:/gi, name => emoji.getUnicode(name) || name);
 
 const renderers = {
   text: emojiSupport,
   code: ({ language, value }) => {
-    return <SyntaxHighlighter style={vscDarkPlus} language={language} children={value} />;
+    return (
+      <SyntaxHighlighter
+        style={vscDarkPlus}
+        language={language}
+        children={value}
+      />
+    );
   },
 };
 

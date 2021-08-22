@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,11 +12,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { PowerSettingsNewOutlined } from '@material-ui/icons';
 
-import { isUserConnected } from '../modules/user/user.selectors';
+import { ROUTES_PATHS_BY_NAMES } from '../modules/routing/routing.constants';
 import { useUser } from '../modules/user/user.context';
-import { login, logout } from '../modules/user/user.actions';
+import { isUserConnected } from '../modules/user/user.selectors';
+import { logout } from '../modules/user/user.actions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
@@ -49,8 +50,9 @@ export default function NavBar() {
   const open = Boolean(anchorEl);
   const [userState, dispatch] = useUser();
   const isConnected = isUserConnected(userState);
+  const { push } = useHistory();
 
-  const handleMenu = (event) => {
+  const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -59,7 +61,7 @@ export default function NavBar() {
   };
 
   const logInAndOut = () => {
-    dispatch(isConnected ? logout() : login());
+    isConnected ? dispatch(logout()) : push(ROUTES_PATHS_BY_NAMES.login);
   };
 
   return (
@@ -69,12 +71,13 @@ export default function NavBar() {
           Shopping App
         </Typography>
         <IconButton
+          data-testid={`connect-${isConnected ? 'logout' : 'login'}-button`}
           edge="start"
           className={classnames([
             classes.menuButton,
             isConnected ? classes.loginButton : classes.logoutButton,
           ])}
-          aria-label={`${isConnected ? 'login' : 'logout'} button`}
+          aria-label={`${isConnected ? 'logout' : 'login'} button`}
           onClick={logInAndOut}
         >
           <PowerSettingsNewOutlined />
@@ -88,6 +91,7 @@ export default function NavBar() {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
+            data-testid="nav-menu"
           >
             <MenuIcon />
           </IconButton>
@@ -106,13 +110,28 @@ export default function NavBar() {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem component={Link} to="/" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-home"
+              component={Link}
+              to="/"
+              onClick={handleClose}
+            >
               Home
             </MenuItem>
-            <MenuItem component={Link} to="/contact" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-contact"
+              component={Link}
+              to="/contact"
+              onClick={handleClose}
+            >
               Contact
             </MenuItem>
-            <MenuItem component={Link} to="/about" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-about"
+              component={Link}
+              to="/about"
+              onClick={handleClose}
+            >
               About
             </MenuItem>
           </Menu>

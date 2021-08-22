@@ -1,4 +1,4 @@
-import { getArticles } from '../../utils/api.utils';
+import { getArticles } from '@react-course-v2/api';
 
 export const RECEIVED_ARTICLES = 'articles/RECEIVED_ARTICLES';
 

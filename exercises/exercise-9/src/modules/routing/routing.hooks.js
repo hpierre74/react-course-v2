@@ -13,7 +13,9 @@ export const useLoginRedirect = () => {
   const { pathname } = useLocation();
   const { push } = useHistory();
 
-  const [initialRoute, setInitialRoute] = useState(pathname === loginPath ? homePath : pathname);
+  const [initialRoute, setInitialRoute] = useState(
+    pathname === loginPath ? homePath : pathname,
+  );
 
   const isProtectedRoute = PROTECTED_PATHS.includes(pathname);
   const isLoginRoute = useMemo(() => pathname === loginPath, [pathname]);
