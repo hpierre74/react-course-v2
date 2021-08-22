@@ -1,21 +1,20 @@
 /// <reference types="cypress" />
 
-import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 
 Given('I am already logged in', () => {
-  cy.log(localStorage.getItem('user'));
-  cy.clearCookies();
-  cy.clearLocalStorage();
-  cy.setCookie('user', 'bar');
-  localStorage.setItem('user', 'bar');
+  cy.setCookie('user', JSON.stringify({ username: 'foo', password: 'bar' }));
+  localStorage.setItem(
+    'user',
+    JSON.stringify({ username: 'foo', password: 'bar' }),
+  );
 });
 
-When('Cookies are cleared', () => {
-  console.info();
+Given('Cookies are cleared', () => {
+  cy.visit('/');
   cy.clearCookies();
   cy.clearLocalStorage();
-  localStorage.removeItem('user');
-  localStorage.removeItem('cart');
+  cy.reload();
 });
 
 Then(

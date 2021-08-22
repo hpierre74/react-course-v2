@@ -62,9 +62,11 @@ export function Cart() {
               className={classes.listItem}
             >
               <ListItemText
+                data-testid={`cart-item-${index}-text`}
                 primary={`x${article.occurrences || 1} - ${article.name}`}
               />
               <ListItemText
+                data-testid={`cart-item-${index}-price`}
                 secondary={(article.occurrences || 1) * article.price}
               />
               <ListItemSecondaryAction>

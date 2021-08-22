@@ -91,6 +91,7 @@ export default function NavBar() {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
+            data-testid="nav-menu"
           >
             <MenuIcon />
           </IconButton>
@@ -109,13 +110,28 @@ export default function NavBar() {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem component={Link} to="/" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-home"
+              component={Link}
+              to="/"
+              onClick={handleClose}
+            >
               Home
             </MenuItem>
-            <MenuItem component={Link} to="/contact" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-contact"
+              component={Link}
+              to="/contact"
+              onClick={handleClose}
+            >
               Contact
             </MenuItem>
-            <MenuItem component={Link} to="/about" onClick={handleClose}>
+            <MenuItem
+              data-testid="nav-menu-item-about"
+              component={Link}
+              to="/about"
+              onClick={handleClose}
+            >
               About
             </MenuItem>
           </Menu>

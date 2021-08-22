@@ -11,7 +11,13 @@ export const ContactPage = () => {
     <Layout>
       <Box display="flex" justifyContent="space-between" m={1}>
         <h2>Contact</h2>
-        <Button component={Link} to="/" color="secondary" variant="outlined">
+        <Button
+          data-testid="back-home-button"
+          component={Link}
+          to="/"
+          color="secondary"
+          variant="outlined"
+        >
           Return to Home
         </Button>
       </Box>

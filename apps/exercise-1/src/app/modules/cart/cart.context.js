@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { cartReducer, initialState } from './cart.reducer';
 
@@ -9,9 +9,9 @@ import { restoreCart } from './cart.actions';
 const CartStateContext = React.createContext();
 const CartDispatchContext = React.createContext();
 
-const persistCart = cart => () => {
+const persistCart = (cart) => () => {
   localStorage.setItem('cart', JSON.stringify(cart));
-}
+};
 
 const CartProvider = ({ children }) => {
   const isInitialized = useRef(false);
@@ -27,7 +27,6 @@ const CartProvider = ({ children }) => {
     const storedArticles = localStorage.getItem('cart');
 
     if (storedArticles) dispatch(restoreCart(JSON.parse(storedArticles)));
-
   });
 
   useEffect(() => {
@@ -35,8 +34,8 @@ const CartProvider = ({ children }) => {
     window.addEventListener('beforeunload', callback);
 
     return () => {
-      window.removeEventListener('beforeunload', callback)
-    }
+      window.removeEventListener('beforeunload', callback);
+    };
   }, [state]);
 
   return (
