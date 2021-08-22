@@ -8,7 +8,7 @@ Feature: Home page
     Then I should see "articles list"
     And I should see "cart"
     And I should see "navbar"
-    And I should see 7 articles card
+    And I should see 7 articles
 
   Scenario: Purchase scenario not connected
     When I click on "add to cart item 1"

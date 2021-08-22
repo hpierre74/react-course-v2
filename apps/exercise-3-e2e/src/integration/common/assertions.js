@@ -23,6 +23,6 @@ Then('{string} should contain {string}', (selectorConstant, content) => {
   cy.get(selector).contains(content);
 });
 
-Then('I should see {int} articles', (itemNumber) => {
+Then('I should see {int} articles card', (itemNumber) => {
   cy.get('articles list').children().should('have.length', itemNumber);
 });

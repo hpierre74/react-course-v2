@@ -14,12 +14,16 @@ export const HomePage = () => {
   }, [articles]);
 
   return (
-    <div data-testid="app">
+    <div>
       <h2 data-testid="app-title">Home Page</h2>
-      <Link to="/about">About Page</Link>
-      <Link to="/contact">Contact Page</Link>
-      <div data-testid="articles-container">
-        <h4 data-testid="articles-title">Articles</h4>
+      <Link data-testid="link-to-about" to="/about">
+        About Page
+      </Link>
+      <Link data-testid="link-to-contact" to="/contact">
+        Contact Page
+      </Link>
+      <div>
+        <h4>Articles</h4>
         <ul data-testid="articles-list">
           {articles.length > 0 &&
             articles.map(({ id, name }) => (
