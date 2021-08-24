@@ -1,90 +1,235 @@
-# ReactCourseV2
+# React Course
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+It is meant to be a 3 days long course on React fundamentals, but especially on **managing the state** and **dealing with hooks**.
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Table of Contents
 
-## Adding capabilities to your workspace
+- [Requirements](#requirements)
+- [Introduction](#introduction)
+  - [Exercise architecture](#exercise-architecture)
+  - [Knowledge Prerequisites](#knowledge-prerequisites)
+- [Getting Started](#getting-started)
+- [What you'll learn](#what-youll-learn)
+  - [react](#react)
+  - [react-router](#react-router)
+  - [styling](#styling)
+  - [redux\*](#redux)
+- [Workflow](#workflow)
+  - [Index](#index)
+    - [1/ Fetching, persisting data locally and list rendering](#1-fetching-persisting-data-locally-and-list-rendering)
+    - [2/ Using react-router-dom to create pages](#2-using-react-router-dom-to-create-pages)
+    - [3/ Wrapping pages, building layout with Material-UI](#3-wrapping-pages-building-layout-with-material-ui)
+    - [4/ Component composition, modules architecture, understanding responsibility](#4-component-composition-modules-architecture-understanding-responsibility)
+    - [5/ Event Driven Design and shared store, the Redux philosophy within React Context](#5-event-driven-design-and-shared-store-the-redux-philosophy-within-react-context)
+    - [6/ Sharing state between providers and components](#6-sharing-state-between-providers-and-components)
+    - [7/ Providers cold shower, a global state struggle](#7-providers-cold-shower-a-global-state-struggle)
+    - [8/ Custom routing, good practices. Adding checkout](#8-custom-routing-good-practices-adding-checkout)
+    - [9/ Controlled Forms and re-renders](#9-controlled-forms-and-re-renders)
+    - [10/ Migrate to redux](#10-migrate-to-redux)
+- [Resources](#resources)Done in 0.49s.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Requirements
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+[![Generic badge](https://img.shields.io/badge/Node->=12-lightgreen.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/Yarn->=1.22-lightgreen.svg)](https://shields.io/)
 
-Below are our core plugins:
+## Introduction
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+Here is the tree architecture of the project.
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+```txt
+.
+├── README.md
+├── apps
+│   ├── exercise-1
+│   ├── exercise-1-e2e
+│   ├── exercise-2
+│   ├── exercise-2-e2e
+│   ├── exercise-3
+│   ├── exercise-3-e2e
+│   ├── exercise-4
+│   ├── exercise-4-e2e
+│   ├── exercise-5
+│   ├── exercise-5-e2e
+│   ├── exercise-6
+│   ├── exercise-6-e2e
+│   ├── exercise-7
+│   ├── exercise-7-e2e
+│   ├── exercise-8
+│   ├── exercise-8-e2e
+│   ├── exercise-9
+│   ├── exercise-9-e2e
+│   ├── react-course-demo
+│   └── react-course-demo-e2e
+├── babel.config.json
+├── examples
+│   ├── react
+│   ├── redux
+│   └── styling
+├── jest.config.js
+├── jest.preset.js
+├── libs
+│   ├── api
+│   └── course-hints
+├── nx.json
+├── package.json
+├── tools
+│   ├── generators
+│   └── tsconfig.tools.json
+├── tsconfig.base.json
+├── tslint.json
+├── workspace.json
+└── yarn.lock
+```
 
-## Generate an application
+Each `exercise-*` directory is the solution of the previous one.
+Validation of an exercise is made through passing the e2e tests, it is a **BDD approach** with the tests already written in Cypress.
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+### Knowledge Prerequisites
 
-> You can use any of the plugins above to generate applications as well.
+- Knowing the basics of React, having already done something basic like a to do list. [See Documentation](https://reactjs.org/)
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+- Being familiar with JS Native Objects and their methods (Array, String, Object, Number, Boolean) [See Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
-## Generate a library
+- Having notions of destructuring, spreading, currying, functional programming, immutability is a huge plus.
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+- Read **Kent C. Dodds** articles [Application state management](https://kentcdodds.com/blog/application-state-management-with-react)
+  and [How to use Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
-> You can also use any of the plugins above to generate libraries as well.
+## Getting Started
 
-Libraries are sharable across libraries and applications. They can be imported from `@react-course-v2/mylib`.
+In your terminal
 
-## Development server
+- Install the project locally: `git clone https://github.com/generous-folks/react-course-v2.git`
+- Install the dependencies: `cd react-course && yarn`
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Starting the app:
 
-## Code scaffolding
+- For the demo: `yarn start react-course-demo`
+- For an exercise: `yarn start exercise-$exerciseNumber`
+  > e.g. : `yarn start exercise-1`
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+Testing your exercise completion
 
-## Build
+- `yarn test exercise-$exerciseNumber`
+  > e.g. : `yarn test exercise-1`
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## What you'll learn
 
-## Running unit tests
+You will create a simple shopping app step by step.
+From the basic vanilla React example to a nicely featured one with routing, global state management, lazy loading and so on.
+It consists on a shared layout, a list of products, a product page, a shopping cart and a checkout form mostly.
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+We can't cover everything in this course, but we try to give a good overview of some common ways to build react apps.
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+> \* = optional
 
-## Running end-to-end tests
+### react
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+- Understanding of React principles
+- Using Class\* and Functional components
+- Managing state and props
+- PropTypes checking
+- Understanding components life cycles
+- Context API
+- Using hooks
+- Architecture and good practices
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+### react-router
 
-## Understand your workspace
+- Basic Routing
+- Param Matching
+- Dynamic Routing and Code splitting\*
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+### styling
 
-## Further help
+- CSS\*
+- CSS-in-JS
+- Material-UI library
+- Styled-Components\*
+- Global Theme usage\*
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+### redux\*
 
-## ☁ Nx Cloud
+- Configuration and Architecture
+- Basic global state management usage
+- Middleware
+- Connected Router
 
-### Computation Memoization in the Cloud
+## Workflow
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+The repository contains a bunch of folders like :
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+- **examples** : samples of everything you need to develop the app and to avoid spending time on google/stack overflow
+- **theory** : some important concepts you should know to master this course
+- **final-version** : a demo, or the actual final version of the app we're aiming to develop.
+- **exercise-X** : All the exercises folders. We thought it was important to jump from an exercise to another having a corrected version of the previous exercise. It also makes more sense for group learning to always be on an equal state while going further.
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+### Index
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+#### 1/ Fetching, persisting data locally and list rendering
+
+See [instructions](./apps/exercise-1/src/assets/README.md)
+
+#### 2/ Using react-router-dom to create pages
+
+See [instructions](./apps/exercise-2/src/assets/README.md)
+
+#### 3/ Wrapping pages, building layout with Material-UI
+
+See [instructions](./apps/exercise-3/src/assets/README.md)
+
+#### 4/ Component composition, modules architecture, understanding responsibility
+
+See [instructions](./apps/exercise-4/src/assets/README.md)
+
+#### 5/ Event Driven Design and shared store, the Redux philosophy within React Context
+
+See [instructions](./apps/exercise-5/src/assets/README.md)
+
+#### 6/ Sharing state between providers and components
+
+See [instructions](./apps/exercise-6/src/assets/README.md)
+
+#### 7/ Providers cold shower, a global state struggle
+
+See [instructions](./apps/exercise-7/src/assets/README.md)
+
+#### 8/ Custom routing, good practices. Adding checkout
+
+See [instructions](./apps/exercise-8/src/assets/README.md)
+
+#### 9/ Controlled Forms and re-renders
+
+See [instructions](./apps/exercise-9/src/assets/README.md)
+
+#### 10/ Migrate to redux\*
+
+See [instructions](./apps/exercise-10/src/assets/README.md)
+
+## Resources
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+- [React docs](https://reactjs.org/)
+- [hooks lifecycles schema](https://wavez.github.io/react-hooks-lifecycle/)
+- **Kent C. Dodds** articles [Application state management](https://kentcdodds.com/blog/application-state-management-with-react)
+  and [How to use Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
+
+## Contributions
+
+Feel free to create an issue or fork this repository and submit a PR.
+
+- if something is not correct or outdated in an exercise
+
+Shit happens, I might have made something wrong
+
+- if you want to create more exercises with non-covered concepts
+
+Using Nx allows to develop many apps into a single monorepo with a certain ease.
+If you want to create new exercises, be my guest. It could also be something totally different as long as it's related to react, hence the repository title.
+
+- if you want to add translations to give this course in your language of choice
+
+This course contains some README files for exercises instructions and for theory parts in english.
+I hope a documented system will be in place when you'll read these lines to add translations seamlessly.
