@@ -34,11 +34,13 @@ class ExampleComponent extends React.Component {
         </ul>
         <h2>Lists</h2>
         <ul>
-          {// This is a shorter syntax with a direct return of our jsx
-          // Notice the use of Object.values to use .map with an object
-          Object.values(PERSONS).map(({ name }) => (
-            <li key={name}>{name}</li>
-          ))}
+          {
+            // This is a shorter syntax with a direct return of our jsx
+            // Notice the use of Object.values to use .map with an object
+            Object.values(PERSONS).map(({ name }) => (
+              <li key={name}>{name}</li>
+            ))
+          }
         </ul>
       </div>
     );

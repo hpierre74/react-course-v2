@@ -13,7 +13,9 @@ export default class FetchComponent extends Component {
   componentDidMount() {
     this.setState(state => ({ ...state, pending: true }));
     fetch('https://some-url.com/api/items')
-      .then(res => this.setState(state => ({ ...state, pending: false, items: res.body })))
+      .then(res =>
+        this.setState(state => ({ ...state, pending: false, items: res.body })),
+      )
       .catch(err => {
         // Do something with the error
         console.log(err);

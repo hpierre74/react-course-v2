@@ -26,7 +26,10 @@ export function MaterialUiList() {
   const classes = useStyles();
   const [{ items }, dispatch] = useSomeContext();
 
-  const dispatchDoStuff = useCallback(id => () => dispatch(doStuff(id)), [dispatch]);
+  const dispatchDoStuff = useCallback(
+    id => () => dispatch(doStuff(id)),
+    [dispatch],
+  );
 
   return (
     <List aria-label="items-list">

@@ -38,7 +38,12 @@ export function CustomCard(props) {
           <Typography>{props.foo}</Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={() => {}} size="small" color="secondary" variant="outlined">
+          <Button
+            onClick={() => {}}
+            size="small"
+            color="secondary"
+            variant="outlined"
+          >
             Lorem
           </Button>
           <Button size="small" color="primary" variant="outlined">
