@@ -10,9 +10,15 @@ import remarkEmojiPlugin from 'remark-emoji';
 
 import { useStyles } from './useStyles.hook';
 
+export interface CodeRendererProps {
+  children: React.ReactNode;
+  className?: string;
+  inline?: boolean;
+};
+
 const renderers = {
-  code: ({ className = '', children, ...props }) => {
-    return props.inline ? (
+  code: ({ className = '', children, inline }: CodeRendererProps) => {
+    return inline ? (
       <code className={className}>{children}</code>
     ) : (
       <SyntaxHighlighter
@@ -31,7 +37,7 @@ const STATUS = {
 
 export function SeeHints() {
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState<null|string>(null);
   const [markdownFile, setMarkdownFile] = useState('');
 
   const theme = useTheme();
