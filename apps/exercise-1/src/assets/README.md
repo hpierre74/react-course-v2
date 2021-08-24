@@ -1,26 +1,32 @@
-# 9/ Controlled Forms
+# 1/ Fetching, persisting data locally and list rendering
 
-| Action | Files                                                    | Exports       |
-| ------ | -------------------------------------------------------- | ------------- |
-| Modify | src/modules/checkout/checkout.component.js               | {Checkout}    |
-| Modify | src/modules/checkout/components/review.component.js      | {Review}      |
-| Modify | src/modules/checkout/components/addressForm.component.js | {AddressForm} |
-| Modify | src/modules/checkout/components/paymentForm.component.js | {PaymentForm} |
+| Action | Files      | Exports |
+| ------ | ---------- | ------- |
+| MODIFY | src/App.js | App     |
 
 ## TL;DR
 
-Let's create the controlled forms !
+Build the JSX: Create a defined markup structure.
 
-The **Stepper** gives a nice UX for combined forms however, outside _Material-UI_ code sample, we need to control every inputs and store their values in order to display it in the **Review** component.
-Where would you locate the state then, in the forms' parent **Checkout** ?
-What other options do you have ? How would you reduce the re-renders ?
+HTML desired output
+
+```html
+<div>
+  <h2>Foo</h2>
+  <div>
+    <h4>bar</h4>
+    <ul data-testid="articles-list">
+      <li>baz</li>
+      <li>boz</li>
+    </ul>
+  </div>
+</div>
+```
 
 ## Step by step
 
-### src/modules/checkout/checkout.component.js
+### App.js
 
-### src/modules/checkout/components/review.component.js
-
-### src/modules/checkout/components/addressForm.component.js
-
-### src/modules/checkout/components/paymentForm.component.js
+- Fetch the articles: use a combination of useState and useEffect to perform the async call and persist the data. You can import the asynchronous method **getArticles** from the api lib.
+- Update the JSX: iterate over the articles using `.map` to display the item name in the `<li></li>`
+- `yarn test exercise-1`

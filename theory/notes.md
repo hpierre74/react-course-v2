@@ -59,7 +59,7 @@ export const Counter = ({ changingProp }) => {
   useEffect(() => {
     // if "count" was used to do the addition, we'll get an infinite loop
     setCount(currentCount => currentCount + 1);
-  }, [changingProp]);
+  }, [changingProp, setCount]);
 };
 ```
 
