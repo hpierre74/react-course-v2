@@ -1,5 +1,9 @@
 {
-  "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.json"],
+  "extends": [
+    "plugin:react-hooks/recommended",
+    "plugin:@nrwl/nx/react",
+    "../../.eslintrc"
+  ],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {

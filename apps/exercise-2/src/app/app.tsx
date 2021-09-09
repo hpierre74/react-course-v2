@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getArticles, ArticleInterface } from '@react-course-v2/api';
 
 const App = () => {
-  const [articles, setArticles] = useState<[]|ArticleInterface[]>([]);
+  const [articles, setArticles] = useState<[] | ArticleInterface[]>([]);
 
   useEffect(() => {
     if (articles.length === 0) {
