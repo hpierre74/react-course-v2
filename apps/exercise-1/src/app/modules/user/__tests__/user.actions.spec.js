@@ -1,9 +1,9 @@
-import { signIn, signOut } from '../../../utils/api.utils';
+import { signIn, signOut } from '@react-course-v2/api';
 import { LOGIN, login, LOGOUT, logout } from '../user.actions';
 
 const user = { id: 'xyz', mail: 'foo@bar.com', name: 'Foo Bar' };
 
-jest.mock('../../../utils/api.utils.js');
+jest.mock('@react-course-v2/api');
 
 describe('user.actions', () => {
   let dispatch, getState;

@@ -1,4 +1,4 @@
-import { signIn, signOut } from '../../utils/api.utils';
+import { signIn, signOut } from '@react-course-v2/api';
 import { getUser } from './user.selectors';
 
 export const LOGIN = 'user/LOGIN';
