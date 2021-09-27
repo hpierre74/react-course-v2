@@ -16,7 +16,6 @@ const UserProvider = ({ children }) => {
     userReducer,
     updatedState || initialState,
   );
-  console.log({ updatedState, initialState, user, state });
   const getState = React.useCallback(() => state, [state]);
 
   return (

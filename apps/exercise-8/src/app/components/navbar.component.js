@@ -61,7 +61,6 @@ export default function NavBar() {
   };
 
   const logInAndOut = () => {
-    console.log(isConnected);
     isConnected ? dispatch(logout()) : push(ROUTES_PATHS_BY_NAMES.login);
   };
 
