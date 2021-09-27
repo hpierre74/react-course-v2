@@ -238,3 +238,8 @@ TODO:
 
 - Test React Contexts with testing library
 - Add article page $id navigation to all e2e past exercise 5
+- Test hooks with testing library react hooks
+- Add reset cart button
+- Check index.html exercises versions
+- Remove babel warnings
+- Finalize instructions

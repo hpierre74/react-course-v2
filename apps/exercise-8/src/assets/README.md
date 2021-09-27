@@ -1,20 +1,22 @@
-# 3/ Wrapping pages, building layout with Material-UI
+# 8/ Custom routing, good practices. Adding checkout
 
-| Action | Files                              | Exports       |
-| ------ | ---------------------------------- | ------------- |
-| Create | src/components/layout.component.js | {Layout}      |
-| Modify | src/pages/contact.page.js          | {ContactPage} |
-| Modify | src/pages/about.page.js            | {AboutPage}   |
-| Modify | src/pages/home.page.js             | {HomePage}    |
-| Modify | src/App.js                         | {App}         |
+| Action | Files                                                    | Exports        |
+| ------ | -------------------------------------------------------- | -------------- |
+| Create | src/modules/checkout/checkout.component.js               | {Checkout}     |
+| Create | src/modules/checkout/components/review.component.js      | {Review}       |
+| Create | src/modules/checkout/components/addressForm.component.js | {AddressForm}  |
+| Create | src/modules/checkout/components/paymentForm.component.js | {PaymentForm}  |
+| Modify | src/App.js                                               | {App}          |
+| Modify | src/pages/checkout.page.js                               | {CheckoutPage} |
 
 ## TL;DR
 
-Now we are going to add some structure to the page, we need a page container component that is responsible for displaying the header (navbar) and the body (content) correctly.
+Let's create the checkout module !
+
+We need a Checkout page that needs a logged in user. So we also need a Login page.
+We'll mock the user api and authentication process for now.
+We need to bo redirected to the login page on some routes, not all.
 
 ## Step by step
 
-- See the newly created `src/components` directory, with the file `navbar.component.js` from material-ui examples
-- Add a `layout.component.js` to the "components" directory, it will export a function `Layout` and directly return a Fragment holding the Navbar and a Material-UI Container rendering children.
-- In each page component, replace the top parent div with the Layout Component, it is the pages container
-- In about and contact pages, add a Material-UI Box component to wrap the h2 and the Link. Use a MUI `<Button component={Link} to='' />` instead of the simple Link
+### src/modules/checkout/checkout.component.js
