@@ -14,7 +14,7 @@ export interface CodeRendererProps {
   children: React.ReactNode;
   className?: string;
   inline?: boolean;
-};
+}
 
 const renderers = {
   code: ({ className = '', children, inline }: CodeRendererProps) => {
@@ -37,7 +37,7 @@ const STATUS = {
 
 export function SeeHints() {
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState<null|string>(null);
+  const [status, setStatus] = useState<null | string>(null);
   const [markdownFile, setMarkdownFile] = useState('');
 
   const theme = useTheme();
@@ -47,6 +47,7 @@ export function SeeHints() {
     fetch('assets/README.md')
       .then(res => res.text())
       .then(setMarkdownFile)
+      .then(() => setStatus(STATUS.success))
       .catch(error => {
         setStatus(STATUS.failure);
         console.error(error);
