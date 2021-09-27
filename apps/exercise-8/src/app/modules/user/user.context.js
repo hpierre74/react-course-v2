@@ -17,6 +17,7 @@ const UserProvider = ({ children }) => {
     updatedState || initialState,
   );
   const getState = React.useCallback(() => state, [state]);
+
   return (
     <UserStateContext.Provider value={state}>
       <UserDispatchContext.Provider value={dispatchThunk(dispatch, getState)}>

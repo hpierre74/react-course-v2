@@ -4,9 +4,12 @@ import { getUser } from './user.selectors';
 export const LOGIN = 'user/LOGIN';
 export const LOGOUT = 'user/LOGOUT';
 
+const encryptUserCredentials = (...args) => [...args];
+
 export const login = (email, password) => async dispatch => {
   try {
-    const user = await signIn(email, password);
+    const encryptedUser = encryptUserCredentials(email, password);
+    const user = await signIn(encryptedUser);
 
     localStorage.setItem('user', JSON.stringify(user));
 

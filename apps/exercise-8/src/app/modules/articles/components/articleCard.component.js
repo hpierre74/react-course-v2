@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { addToCart } from '../../cart/cart.actions';
+import { useCart } from '../../cart/cart.context';
 
 const useStyles = makeStyles({
   card: {
@@ -33,6 +35,9 @@ const useStyles = makeStyles({
 export function ArticleCard({ article }) {
   const { name, year, image, slug, price } = article;
   const classes = useStyles();
+  const [, dispatch] = useCart();
+
+  const dispatchAddToCart = () => dispatch(addToCart(article));
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -49,14 +54,16 @@ export function ArticleCard({ article }) {
         </CardContent>
         <CardActions>
           <Button
-            onClick={() => null}
+            data-testid={`add-to-cart-${slug}`}
+            onClick={dispatchAddToCart}
             size="small"
             color="secondary"
             variant="outlined"
           >
-            Lorem
+            Add to Cart
           </Button>
           <Button
+            data-testid={`go-to-article-${slug}`}
             size="small"
             component={Link}
             to={`/articles/${slug}`}
