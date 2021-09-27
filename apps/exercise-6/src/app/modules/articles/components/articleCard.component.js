@@ -49,7 +49,7 @@ export function ArticleCard({ article }) {
         </CardContent>
         <CardActions>
           <Button
-            onClick={() => {}}
+            onClick={() => null}
             size="small"
             color="secondary"
             variant="outlined"
