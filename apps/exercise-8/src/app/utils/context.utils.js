@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-export const dispatchThunk = dispatch => param => {
+export const dispatchThunk = (dispatch, getState) => param => {
   if (typeof param === 'function') {
-    return param(dispatch);
+    return param(dispatch, getState);
   }
 
   return dispatch(param);

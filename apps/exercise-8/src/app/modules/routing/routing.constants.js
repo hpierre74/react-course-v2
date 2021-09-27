@@ -7,7 +7,4 @@ export const ROUTES_PATHS_BY_NAMES = {
   checkout: '/checkout',
 };
 
-export const PROTECTED_PATHS = [
-  ROUTES_PATHS_BY_NAMES.login,
-  ROUTES_PATHS_BY_NAMES.checkout,
-];
+export const PROTECTED_PATHS = [ROUTES_PATHS_BY_NAMES.checkout];
