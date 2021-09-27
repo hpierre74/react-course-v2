@@ -1,6 +1,6 @@
 import { RECEIVED_ARTICLES, requestArticles } from '../articles.actions';
 
-jest.mock('../../../utils/api.utils', () => ({
+jest.mock('@react-course-v2/api', () => ({
   getArticles: jest.fn().mockResolvedValue('foo'),
 }));
 
