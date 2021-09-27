@@ -233,3 +233,8 @@ If you want to create new exercises, be my guest. It could also be something tot
 
 This course contains some README files for exercises instructions and for theory parts in english.
 I hope a documented system will be in place when you'll read these lines to add translations seamlessly.
+
+TODO:
+
+- Test React Contexts with testing library
+- Add article page $id navigation to all e2e past exercise 5
