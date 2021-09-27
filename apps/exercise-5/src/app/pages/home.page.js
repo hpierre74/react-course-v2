@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <Layout data-testid="app">
       <h2 data-testid="app-title">Home Page</h2>
-      <ArticlesList data-testid="articles-list" />
+      <ArticlesList />
     </Layout>
   );
 };
