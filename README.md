@@ -237,3 +237,4 @@ I hope a documented system will be in place when you'll read these lines to add 
 TODO:
 
 - Test React Contexts with testing library
+- Add article page $id navigation to all e2e past exercise 5
