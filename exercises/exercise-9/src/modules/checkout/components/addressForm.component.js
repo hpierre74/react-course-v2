@@ -5,9 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import { GridTextField } from '../../../components/gridTextField.component';
-import { useStepperFormChild } from '../../../hooks/useStepperFormChild.hook';
-
 const INPUTS_CONFIG = {
   firstName: {
     props: { autoComplete: 'given-name', label: 'First name' },
@@ -44,24 +41,14 @@ const INPUTS_CONFIG = {
 };
 
 // eslint-disable-next-line
-function AddressForm({ step, setParentState, initialState }) {
-  const onBlur = useStepperFormChild({ initialState, setParentState, step });
-
+function AddressForm(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Shipping address
       </Typography>
       <Grid container spacing={3}>
-        {Object.keys(INPUTS_CONFIG).map(inputName => (
-          <GridTextField
-            key={inputName}
-            onBlur={onBlur}
-            initialState={initialState[inputName]}
-            {...INPUTS_CONFIG[inputName]}
-            inputName={inputName}
-          />
-        ))}
+        {/* render inputs here, good luck */}
         <Grid item xs={12}>
           <FormControlLabel
             control={

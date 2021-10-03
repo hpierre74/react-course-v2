@@ -41,8 +41,6 @@ export default function Review({ formState }) {
     getShippingState(formState);
   const { cardName, cardNumber, expDate } = getPaymentState(formState);
 
-  console.log(articles, formState);
-
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

@@ -4,10 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import { GridTextField } from '../../../components/gridTextField.component';
-
-import { useStepperFormChild } from '../../../hooks/useStepperFormChild.hook';
-
 const INPUTS_CONFIG = {
   cardName: {
     props: {
@@ -38,24 +34,14 @@ const INPUTS_CONFIG = {
 };
 
 // eslint-disable-next-line
-export default function PaymentForm({ step, setParentState, initialState }) {
-  const onBlur = useStepperFormChild({ initialState, setParentState, step });
-
+export default function PaymentForm(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Payment method
       </Typography>
       <Grid container spacing={3}>
-        {Object.keys(INPUTS_CONFIG).map(inputName => (
-          <GridTextField
-            key={inputName}
-            onBlur={onBlur}
-            initialState={initialState[inputName]}
-            {...INPUTS_CONFIG[inputName]}
-            inputName={inputName}
-          />
-        ))}
+        {/* render inputs here, good luck */}
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveCard" value="yes" />}

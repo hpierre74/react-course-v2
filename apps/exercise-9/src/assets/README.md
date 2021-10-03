@@ -1,20 +1,31 @@
-# 3/ Wrapping pages, building layout with Material-UI
+# 9/ Persistance and initialization
 
-| Action | Files                              | Exports       |
-| ------ | ---------------------------------- | ------------- |
-| Create | src/components/layout.component.js | {Layout}      |
-| Modify | src/pages/contact.page.js          | {ContactPage} |
-| Modify | src/pages/about.page.js            | {AboutPage}   |
-| Modify | src/pages/home.page.js             | {HomePage}    |
-| Modify | src/App.js                         | {App}         |
+| Action | Files                                                    | Exports                                                                               |
+| ------ | -------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Create | src/hooks/useOnLeave.hook.js                             | {useOnLeave}                                                                          |
+| Create | src/hooks/useStepperForm.hook.js                         | {useStepperForm}                                                                      |
+| Create | src/hooks/useStepperFormChild.hook.js                    | {useStepperFormChild}                                                                 |
+| Modify | src/modules/cart/cart.context.js                         | {CartProvider, useCart, useCartState, useCartDispatch}                                |
+| Modify | src/modules/cart/cart.actions.js                         | {restoreCart, addToCart, removeFromCart, ADD_TO_CART, REMOVE_FROM_CART, RESTORE_CART} |
+| Modify | src/modules/cart/cart.reducer.js                         | {initialState, cartReducer}                                                           |
+| Modify | src/modules/checkout/components/addressForm.component.js | {AddressForm}                                                                         |
+| Modify | src/modules/checkout/components/paymentForm.component.js | {PaymentForm}                                                                         |
+| Modify | src/modules/checkout/components/checkout.component.js    | {Checkout}                                                                            |
 
 ## TL;DR
 
-Now we are going to add some structure to the page, we need a page container component that is responsible for displaying the header (navbar) and the body (content) correctly.
+Now we want to use an actually working form in the checkout page so we can display a relevant bill (contact details mostly) at the user when the steps are done.
 
 ## Step by step
 
-- See the newly created `src/components` directory, with the file `navbar.component.js` from material-ui examples
-- Add a `layout.component.js` to the "components" directory, it will export a function `Layout` and directly return a Fragment holding the Navbar and a Material-UI Container rendering children.
-- In each page component, replace the top parent div with the Layout Component, it is the pages container
-- In about and contact pages, add a Material-UI Box component to wrap the h2 and the Link. Use a MUI `<Button component={Link} to='' />` instead of the simple Link
+### src/modules/checkout/checkout.component.js
+
+Do this
+
+### src/modules/checkout/paymentForm.component.js
+
+Do that
+
+### src/modules/checkout/addressForm.component.js
+
+Do thus
