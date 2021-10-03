@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import { useTheme } from '@material-ui/core/styles';
@@ -8,7 +8,7 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import gfm from 'remark-gfm';
 import remarkEmojiPlugin from 'remark-emoji';
 
-import { useStyles } from './useStyles.hook';
+import { useStyles } from './useStyles';
 import { useReadme } from './useReadme';
 
 export interface CodeRendererProps {
