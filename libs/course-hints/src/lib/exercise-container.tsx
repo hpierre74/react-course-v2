@@ -9,6 +9,7 @@ import gfm from 'remark-gfm';
 import remarkEmojiPlugin from 'remark-emoji';
 
 import { useStyles } from './useStyles.hook';
+import { useReadme } from './useReadme';
 
 export interface CodeRendererProps {
   children: React.ReactNode;
@@ -30,29 +31,13 @@ const renderers = {
   },
 };
 
-const STATUS = {
-  success: 'success',
-  failure: 'failure',
-};
-
 export function SeeHints() {
   const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState<null | string>(null);
-  const [markdownFile, setMarkdownFile] = useState('');
 
   const theme = useTheme();
   const classes = useStyles(theme);
 
-  useEffect(() => {
-    fetch('assets/README.md')
-      .then(res => res.text())
-      .then(setMarkdownFile)
-      .then(() => setStatus(STATUS.success))
-      .catch(error => {
-        setStatus(STATUS.failure);
-        console.error(error);
-      });
-  }, []);
+  const { readme, isSuccess } = useReadme();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,7 +47,7 @@ export function SeeHints() {
     setOpen(false);
   };
 
-  return status === STATUS.success ? (
+  return isSuccess ? (
     <div className={classes.position}>
       <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         README
@@ -79,7 +64,7 @@ export function SeeHints() {
           className={classes.table}
           remarkPlugins={[gfm, remarkEmojiPlugin]}
           components={renderers}
-          children={markdownFile}
+          children={readme}
         />
       </Dialog>
     </div>
