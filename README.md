@@ -115,6 +115,12 @@ Testing your exercise completion
 - `yarn test exercise-$exerciseNumber`
   > e.g. : `yarn test exercise-1`
 
+Launching an exercise in another language than english:
+
+- `NX_LANG='$myLocale' yarn start exercise-$exerciseNumber`
+  > e.g. : `NX_LANG='fr' yarn start exercise-1`
+  > :information_source: The locale must exist in `libs/course-hints/src/lib/constants.ts` and the exercises READMEs should be translated.
+
 ## What you'll learn
 
 You will create a simple shopping app step by step.
@@ -218,23 +224,27 @@ See [instructions](./apps/exercise-10/src/assets/README.md)
 
 ## Contributions
 
+### Issues
+
 Feel free to create an issue or fork this repository and submit a PR.
 
 - if something is not correct or outdated in an exercise
 
-Shit happens, I might have made something wrong
+### Adding exercises
 
 - if you want to create more exercises with non-covered concepts
 
 Using Nx allows to develop many apps into a single monorepo with a certain ease.
 If you want to create new exercises, be my guest. It could also be something totally different as long as it's related to react, hence the repository title.
 
-- if you want to add translations to give this course in your language of choice
+### Translations
 
 This course contains some README files for exercises instructions and for theory parts in english.
-I hope a documented system will be in place when you'll read these lines to add translations seamlessly.
+If you want to add translations to teach this course in your language of choice do the following:
 
-TODO:
+- Translate each exercises README file in the `assets` folder and create a new file with your translation in the same folder: `README-$myLocale.md`
+
+## RoadMap (left todo)
 
 - Test React Contexts with testing library
 - Add article page $id navigation to all e2e past exercise 5
