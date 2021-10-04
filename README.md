@@ -243,6 +243,9 @@ This course contains some README files for exercises instructions and for theory
 If you want to add translations to teach this course in your language of choice do the following:
 
 - Translate each exercises README file in the `assets` folder and create a new file with your translation in the same folder: `README-$myLocale.md`
+- Add your locale to the "SUPPORTED_LANGS" enum constant located here `libs/course-hints/src/lib/constants.ts`
+
+  > :bulb: Follow this example Pull Request https://github.com/hpierre74/react-course-v2/pull/22
 
 ## RoadMap (left todo)
 
