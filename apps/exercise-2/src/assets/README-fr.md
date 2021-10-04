@@ -2,10 +2,10 @@
 
 | Action   | Fichiers                  | Exports       |
 | -------- | ------------------------- | ------------- |
-| Créer    | src/pages/home.page.js    | {HomePage}    |
-| Créer    | src/pages/about.page.js   | {AboutPage}   |
-| Créer    | src/pages/contact.page.js | {ContactPage} |
-| Modifier | App.js                    | {App}         |
+| CRÉER    | src/pages/home.page.js    | {HomePage}    |
+| CRÉER    | src/pages/about.page.js   | {AboutPage}   |
+| CRÉER    | src/pages/contact.page.js | {ContactPage} |
+| MODIFIER | App.js                    | {App}         |
 
 ## En résumé
 
