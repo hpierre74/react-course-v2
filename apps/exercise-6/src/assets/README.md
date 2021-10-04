@@ -29,14 +29,16 @@ The two solutions are very similar but, in our case, the only thing we need is s
 
 ## Step by step
 
-To begin with, let's duplicate the **articles** modules and rename it cart, it should be pretty step forward to adapt it.
+To begin with, let's duplicate the **articles** modules and rename it cart, it should be pretty straightforward to adapt it.
 
 ### src/modules/cart/cart.actions.js
 
 Remove everything from the past articles.
-Create two action creators **ADD_TO_CART** and **REMOVE_FROM_CART**
-Create two simple methods that returns straight object actions. **addToCart** takes `article` as only parameter and returns `article` as property in the action.
-**removeFromCart** takes `article` as only parameter and returns id as property in the action
+Create two action types **ADD_TO_CART** and **REMOVE_FROM_CART**
+Create two simple functions that return an action object:
+
+- **addToCart** takes `article` as only parameter and returns an action object with a property `article` and its property `type`.
+- **removeFromCart** takes `article` as only parameter and returns `id` in the action object and its property `type`.
 
 ### src/modules/cart/cart.reducer.js
 
