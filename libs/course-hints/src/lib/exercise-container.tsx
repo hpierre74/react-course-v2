@@ -10,15 +10,20 @@ import remarkEmojiPlugin from 'remark-emoji';
 
 import { useStyles } from './useStyles';
 import { useReadme } from './useReadme';
+import SimpleAccordion from './accordion';
 
 export interface CodeRendererProps {
   children: React.ReactNode;
   className?: string;
   inline?: boolean;
+  node?: any
 }
 
-const renderers = {
-  code: ({ className = '', children, inline }: CodeRendererProps) => {
+export const renderers = {
+  code: ({ className = '', children, inline, node }: CodeRendererProps) => {
+    if (node.properties && node.properties.className && node.properties.className[0].startsWith('language-details')) {
+      return <SimpleAccordion title={node.properties.className[0].slice(17).replaceAll('_', ' ')}>{children[0].replaceAll('---', '```')}</SimpleAccordion>
+    }
     return inline ? (
       <code className={className}>{children}</code>
     ) : (

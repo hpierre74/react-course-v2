@@ -18,6 +18,18 @@ We are going to create a few pages, for now each will display a simple title and
 - In `src/pages/home.page.js`, copy everything from _App.js_ and add `<Link />` components to about and contact page under the h2
 - In `src/App.js`, use BrowserRouter, Switch and Route like the following example
 
+```details-Give_me_a_hint_!
+ 
+---js
+export default Toto = () => {
+  console.log('test');
+  
+  return null;
+} 
+---
+ 
+```
+
 ```js
 const Foo = () => {
   return (
