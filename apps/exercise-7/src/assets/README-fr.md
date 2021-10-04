@@ -49,7 +49,7 @@ Vous devez:
 - Assigner l'utilisateur dans lo localStorage sous la clé "user".
 - retourner un appel à dispatch avec pour type **LOGIN**.
 
-#### Déconnexion
+#### logout
 
 ```js
 export const logout = () => async (dispatch, getState) => {};
@@ -66,7 +66,7 @@ Vous devez:
 
 Chouette, un reducer super basique !
 
-#### Connexion
+#### LOGIN
 
 Écouter l'action **LOGIN** dans le switch/case et assigner l'utilisateur dans le state à partir de la propriété user de l'action.
 

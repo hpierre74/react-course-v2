@@ -17,7 +17,7 @@ Créons le module Cart !
 
 Nous avons besoin d'un panier visible à tout moment pendant notre navigation à travers cette brillante application de shopping.
 
-Pensons au HTML dans un premier temps. C'est un encart à côté d'une section.
+Pensons au HTML dans un premier temps. C'est un _aside_ à côté d'une _section_.
 
 Où devons nous le ranger ? C'est un module, mais que nous devons instancier dans la page. On va donc devoir rajouter des conteneurs à chaque
 page. Nous avons 2 options.
