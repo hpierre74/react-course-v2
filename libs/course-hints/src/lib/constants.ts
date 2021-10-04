@@ -11,6 +11,7 @@ interface SupportedLanguagesInterface {
 
 const SUPPORTED_LANGUAGES: SupportedLanguagesInterface = {
   [DEFAULT_LANG]: DEFAULT_LANG,
+  fr: 'fr',
 };
 
 const LANG = process.env.NX_LANG;
