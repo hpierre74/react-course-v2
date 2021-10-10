@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './components/addressForm.component';
 import PaymentForm from './components/paymentForm.component';
 import Review from './components/review.component';
-import { useStepperForm } from '../../hooks/useStepperForm.hook';
 import { SHIPPING, PAYMENT, REVIEW, steps } from './checkout.constants';
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function getStepContent(step, [formState, setFormState]) {
+function getStepContent(step) {
   switch (step) {
     case SHIPPING:
       return <AddressForm />;
@@ -57,16 +56,9 @@ function getStepContent(step, [formState, setFormState]) {
   }
 }
 
-export const initialFormState = {
-  [SHIPPING]: {},
-  [PAYMENT]: {},
-  [REVIEW]: {},
-};
-
 function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const stepperForm = useStepperForm(initialFormState);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -102,7 +94,7 @@ function Checkout() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            {getStepContent(steps[activeStep], stepperForm)}
+            {getStepContent(steps[activeStep])}
             <div className={classes.buttons}>
               {activeStep !== 0 && (
                 <Button onClick={handleBack} className={classes.button}>
