@@ -55,7 +55,6 @@ const INPUTS_CONFIG = {
     props: { autoComplete: 'shipping postal-code', label: 'Zip code' },
     gridProps: { sm: 6, xs: 12 },
   },
-
   country: {
     props: { autoComplete: 'shipping country', label: 'Country code' },
     gridProps: { xs: 12, sm: 6 },

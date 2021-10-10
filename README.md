@@ -256,3 +256,7 @@ If you want to add translations to teach this course in your language of choice 
 - Check index.html exercises versions
 - Remove babel warnings
 - Finalize instructions
+- Move test validation
+- Create checkout scenario
+- modify App.js to app.tsx in readmes
+- diff: git diff --no-index --color "apps/exercise-8" "apps/exercise-9"
