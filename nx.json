@@ -98,6 +98,13 @@
     "react-course-demo-e2e": {
       "tags": [],
       "implicitDependencies": ["react-course-demo"]
+    },
+    "with-react-lazy": {
+      "tags": []
+    },
+    "with-react-lazy-e2e": {
+      "tags": [],
+      "implicitDependencies": ["with-react-lazy"]
     }
   },
   "targetDependencies": {
