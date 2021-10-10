@@ -127,7 +127,7 @@ You will create a simple shopping app step by step.
 From the basic vanilla React example to a nicely featured one with routing, global state management, lazy loading and so on.
 It consists on a shared layout, a list of products, a product page, a shopping cart and a checkout form mostly.
 
-We can't cover everything in this course, but we try to give a good overview of some common ways to build react apps.
+We can't cover everything in this course, but we try to give a good overview of some common ways to build react apps. It is obviously very opinionated, feel free to raise an issue if something doesn't seem right, everything should be up to discussion.
 
 > \* = optional
 
@@ -222,7 +222,7 @@ See [instructions](./apps/exercise-10/src/assets/README.md)
 - **Kent C. Dodds** articles [Application state management](https://kentcdodds.com/blog/application-state-management-with-react)
   and [How to use Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
-## Contributions
+## Contributing
 
 ### Issues
 
@@ -232,10 +232,67 @@ Feel free to create an issue or fork this repository and submit a PR.
 
 ### Adding exercises
 
-- if you want to create more exercises with non-covered concepts
-
 Using Nx allows to develop many apps into a single monorepo with a certain ease.
-If you want to create new exercises, be my guest. It could also be something totally different as long as it's related to react, hence the repository title.
+If you want to create new exercises, it will be very appreciated. It could also be something totally different as long as it's related to react, hence the repository title.
+
+#### You want to add a concept to the existing exercises
+
+- Create a react NX app
+
+```js
+yarn nx g @nrwl/react:app with-<$scope>
+```
+
+> e.g. yarn nx g @nrwl/react:app with-lazy-loading
+
+- Use the same directory structure and copy the src of the last main exercise (10).
+
+```bash
+.
+├── babel-jest.config.json
+├── jest.config.js
+├── src
+│   ├── app
+│   ├── assets
+│   ├── environments
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.tsx
+│   ├── polyfills.ts
+│   └── styles.css
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
+
+- Add your code, test it functionally if possible and unitary if not.
+
+- Create the related instructions in `assets/README.md`
+
+:warning: Don't forget to provide all necessary data-testid that should be integrated in order for your tests to pass. Mention every file paths, default and name exports needed in case of unitary testing.
+Also, verify that you use the ExerciseContainer providing the instructions popup.
+
+#### You want to create a totally different exercise from the existing ones
+
+There are good reasons not to start from the previous exercises since it's very opinionated and the existing app does neither cover all possible tasks a react developer could face, nor does it cover every possible paradigms, design patterns, etc...
+
+- Create a react NX app
+
+```js
+yarn nx g @nrwl/react:app alternate-<$scope>
+```
+
+> e.g. yarn nx g @nrwl/react:app alternate-messenger-clone
+
+- Use whatever directory structure NX allows you to use.
+
+:information_source: If you want to decouple it into different exercises (apps), follow the same number pattern that was used for the main exercises :arrow_down:
+
+```js
+yarn nx g @nrwl/react:app alternate-<$scope>-<$exerciseNumber>
+```
+
+> e.g. yarn nx g @nrwl/react:app alternate-messenger-clone-1
 
 ### Translations
 
